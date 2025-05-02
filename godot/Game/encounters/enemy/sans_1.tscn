@@ -1,0 +1,242 @@
+[gd_scene load_steps=37 format=3 uid="uid://cuuor6488vm2a"]
+
+[ext_resource type="PackedScene" uid="uid://bp62m2pkjek8i" path="res://Game/encounters/body/sans.tscn" id="1_euocs"]
+[ext_resource type="AudioStream" uid="uid://dx5o1v0ulqlvx" path="res://sfx/impact_wallhit.wav" id="6_txbp0"]
+[ext_resource type="AudioStream" uid="uid://b3ewfxphe2lp" path="res://sfx/boom2.ogg" id="8_r7kvv"]
+[ext_resource type="FontFile" uid="uid://csykmc6wiuic" path="res://Game/assets/font/sans.ttf" id="9_whbel"]
+[ext_resource type="AudioStream" uid="uid://dimh8qn8ampsv" path="res://sfx/snd_damage.wav" id="10_lidoa"]
+[ext_resource type="Shader" uid="uid://5h6o16kson3k" path="res://Enemies/dust/undertale_dust.tres" id="14_8se00"]
+[ext_resource type="Texture2D" uid="uid://v2uk8ex2yh8f" path="res://Enemies/dust/default_dust.png" id="15_clr63"]
+[ext_resource type="Texture2D" uid="uid://bw02r33khpc4w" path="res://particles/smoke.png" id="16_n4l3h"]
+[ext_resource type="PackedScene" uid="uid://d3j04wql8n25c" path="res://Battle/Misc/dialogue.tscn" id="17_akvrj"]
+[ext_resource type="Texture2D" uid="uid://be5xqdr4doast" path="res://Game/assets/sprite/sheet/death.png" id="18_teahm"]
+[ext_resource type="AudioStream" uid="uid://dtoo70e1wko8r" path="res://sfx/snd_vaporized.wav" id="19_31muo"]
+
+[sub_resource type="Dialogue" id="Dialogue_h1dhv"]
+dialog_text = "새들은 지저귀고, 꽃들은..."
+dialog_speed = 0.09
+dialog_expressions = Array[int]([-1, -1])
+
+[sub_resource type="Dialogue" id="Dialogue_rvqxv"]
+dialog_text = "아니다 뭐 그냥.."
+dialog_speed = 0.1
+dialog_expressions = Array[int]([17, -1])
+
+[sub_resource type="Dialogues" id="Dialogues_sjt8k"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_h1dhv"), SubResource("Dialogue_rvqxv")])
+
+[sub_resource type="Dialogue" id="Dialogue_x4mvr"]
+dialog_text = "그럼"
+dialog_expressions = Array[int]([9, 1])
+
+[sub_resource type="Dialogue" id="Dialogue_6cko7"]
+dialog_text = "슬슬 시작 하자"
+dialog_expressions = Array[int]([5, 2])
+
+[sub_resource type="Dialogues" id="Dialogues_ti782"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_x4mvr"), SubResource("Dialogue_6cko7")])
+
+[sub_resource type="Dialogue" id="Dialogue_kriex"]
+dialog_text = "kid 미안하지만.. 넌"
+dialog_expressions = Array[int]([4, -1])
+
+[sub_resource type="Dialogues" id="Dialogues_cbvnj"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_kriex")])
+
+[sub_resource type="Dialogue" id="Dialogue_ponph"]
+dialog_text = "..?"
+dialog_expressions = Array[int]([10, -1])
+
+[sub_resource type="Dialogue" id="Dialogue_w0lj3"]
+dialog_text = "어.. 음"
+dialog_expressions = Array[int]([23, -1])
+
+[sub_resource type="Dialogue" id="Dialogue_trye6"]
+dialog_text = "음... 좀 심각하네..."
+dialog_expressions = Array[int]([2, 11])
+
+[sub_resource type="Dialogue" id="Dialogue_g6704"]
+dialog_text = "..."
+dialog_expressions = Array[int]([4, 11])
+
+[sub_resource type="Dialogue" id="Dialogue_btteo"]
+dialog_text = "어쩔수 없지 kid 일단 나가자"
+dialog_expressions = Array[int]([1, 1])
+
+[sub_resource type="Dialogues" id="Dialogues_fwxys"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_ponph"), SubResource("Dialogue_w0lj3"), SubResource("Dialogue_trye6"), SubResource("Dialogue_g6704"), SubResource("Dialogue_btteo")])
+
+[sub_resource type="ActInfo" id="ActInfo_3yu38"]
+description = PackedStringArray("* 샌즈 - ATK 1 DEF 1\n* 1 데미지만 줄수 있다", "* 당신은 이미 잘 알고 있는 사실이다")
+
+[sub_resource type="EnemyState" id="EnemyState_udyrt"]
+acts = Array[ActInfo]([SubResource("ActInfo_3yu38")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtsto"]
+shader = ExtResource("14_8se00")
+shader_parameter/progress = 0.0
+shader_parameter/particle_lifetime_fraction = 0.5
+shader_parameter/connect_lines = true
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 10.0
+shader_parameter/initial_linear_velocity = 40.0
+shader_parameter/linear_accel = 20.0
+shader_parameter/initial_linear_velocity_random = 0.4
+shader_parameter/linear_accel_random = 0.15
+shader_parameter/lifetime_randomness = 0.2
+shader_parameter/sprite = ExtResource("15_clr63")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w6q8r"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ly5ps"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.25874, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2t0oe"]
+curve = SubResource("Curve_ly5ps")
+
+[sub_resource type="Curve" id="Curve_qhnhf"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lx7ot"]
+curve = SubResource("Curve_qhnhf")
+
+[sub_resource type="Curve" id="Curve_ln0sc"]
+_data = [Vector2(0, 1), 0.0, -1.74636, 0, 0, Vector2(1, 0), -0.375671, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rdf7h"]
+curve = SubResource("Curve_ln0sc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nlka1"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 20.0
+direction = Vector3(1, 1, 0)
+spread = 0.0
+radial_velocity_min = 160.0
+radial_velocity_max = 160.0
+radial_velocity_curve = SubResource("CurveTexture_rdf7h")
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_2t0oe")
+anim_offset_curve = SubResource("CurveTexture_lx7ot")
+
+[node name="Enemy_SANS1" type="Enemy_SANS1"]
+enemy_name = "샌즈"
+kr = true
+isFirstTurn = true
+dodging = true
+stats = {
+"def": 1,
+"hp": 1,
+"max_hp": 1
+}
+one_by_one_overrdie = true
+dialogues = [SubResource("Dialogues_sjt8k"), SubResource("Dialogues_ti782"), SubResource("Dialogues_cbvnj"), SubResource("Dialogues_fwxys")]
+flavour_text = PackedStringArray("* 전투가 시작된다", "* 샌즈는 이제 당신을 생각하지 않는다", "* 이상한 기운이..")
+enemy_states = [SubResource("EnemyState_udyrt")]
+hurt_sound_path = NodePath("Sounds/Hurt")
+dust_sound_path = NodePath("Sounds/Dust")
+dust_path = NodePath("Dust")
+e_head_path = NodePath("sans/Idle/body/head")
+e_body_path = NodePath("sans/Idle/body")
+sprites_path = NodePath("sans")
+dialogue_path = NodePath("Dialogue")
+
+[node name="sans" parent="." instance=ExtResource("1_euocs")]
+position = Vector2(1, -62)
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+position = Vector2(-54, -144)
+emitting = false
+amount = 16000
+process_material = SubResource("ShaderMaterial_jtsto")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-6.06821, -19.7972, 119.866, 163.797)
+local_coords = true
+
+[node name="Spare" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_w6q8r")
+position = Vector2(3, -63)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_nlka1")
+texture = ExtResource("16_n4l3h")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-141.412, -148.057, 285.059, 248.057)
+local_coords = true
+
+[node name="Dialogue" parent="." instance=ExtResource("17_akvrj")]
+custom_character = 1
+offset_left = 59.0
+offset_top = -141.0
+offset_right = 237.0
+offset_bottom = -31.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="DropText" type="DropText" parent="."]
+spacing = 20.0
+font = ExtResource("9_whbel")
+color = Color(0.847059, 0.14902, 0.152941, 1)
+z_index = 101
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -173)
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_txbp0")
+bus = &"SFX"
+
+[node name="Dust" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("19_31muo")
+bus = &"SFX"
+
+[node name="boom" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_r7kvv")
+bus = &"SFX"
+
+[node name="damage" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_lidoa")
+bus = &"SFX"
+
+[node name="friends" type="Node2D" parent="."]
+visible = false
+z_index = 101
+
+[node name="papyrus" type="Sprite2D" parent="friends"]
+position = Vector2(1.99998, -118.852)
+scale = Vector2(0.7125, 0.855519)
+texture = ExtResource("18_teahm")
+region_enabled = true
+region_rect = Rect2(367, 228, 160, 182)
+
+[node name="undyne" type="Sprite2D" parent="friends"]
+position = Vector2(196, -78)
+scale = Vector2(0.713576, 0.708665)
+texture = ExtResource("18_teahm")
+region_enabled = true
+region_rect = Rect2(344, -1, 151, 206)
+
+[node name="toriel" type="Sprite2D" parent="friends"]
+position = Vector2(-179, -68)
+scale = Vector2(1.48235, 1.57561)
+texture = ExtResource("18_teahm")
+region_enabled = true
+region_rect = Rect2(84, 240, 68, 80)
+
+[connection signal="timeout" from="Timer" to="." method="end_throws"]
+
+[editable path="sans"]
