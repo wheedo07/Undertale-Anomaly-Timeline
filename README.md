@@ -2,15 +2,6 @@
 
 <div align="center">
   <img src="./image/logo.png" alt="게임 로고" width="600"/>
-  <br>
-  <p>
-    <a href="#소개">소개</a> •
-    <a href="#주요-특징">특징</a> •
-    <a href="#주요-캐릭터">캐릭터</a> •
-    <a href="#게임플레이">게임플레이</a> •
-    <a href="#-게임-조작">조작</a> •
-    <a href="#-개발-정보">개발 정보</a>
-  </p>
 </div>
 
 ## 소개
@@ -126,6 +117,7 @@
 
 <div align="center">
   <p><i>"때로는 과거의 그림자가 현재를 뒤덮기도 합니다..."</i></p>
-  <p><i>© 2025 Undertale: Anomaly Timeline - 팬 프로젝트</i><br>
-  <small>이 게임은 Toby Fox의 Undertale에 영감을 받은 팬 작품으로, 원작과 직접적인 관련이 없습니다.</small></p>
 </div>
+  
+<p><i>© 2025 Undertale: Anomaly Timeline - 팬 프로젝트</i><br>
+<small>이 게임은 Toby Fox의 Undertale에 영감을 받은 팬 작품으로, 원작과 직접적인 관련이 없습니다.</small></p>
