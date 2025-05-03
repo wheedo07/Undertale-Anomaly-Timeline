@@ -68,9 +68,33 @@ void TrueLaboratory::flowey_move() {
         sys->sleep([this, flowey]() {
             summontextbox()->character(Character::FLOWEY, sys->dia()->from(
                 PackedStringArray({
-                    String::utf8("* 테스트")
+                    String::utf8("* 오, 드디어 일어났네"),
+                    String::utf8("* 기절한 얼굴로 널 바라보는 것도 지루했거든"),
+                    String::utf8("* 뭐… 그게 중요한 건 아니지"),
+                    String::utf8("* 지금 중요한 건... 누가 널 여기로 보냈는지야"),
+                    String::utf8("* 여긴 꺼림칙한 과학자의 연구소야"),
+                    String::utf8("* 가스터 박사... 들어본 적 있지?"),
+                    String::utf8("* 아마 걘 널 오래 전부터 지켜보고 있었어"),
+                    String::utf8("* 샌즈 녀석이 가스터를 부른거야 뭔가를 꾸미고 있어. 널 멈추기 위해서"),
+                    String::utf8("* 그리고 그는 영혼이 없어도 존재하는 방법을 찾고 있었어"),
+                    String::utf8("* 그리고 아이러니하게도, 그게 실제로 성공해버렸지 뭐야"),
+                    String::utf8("* 이제 그는 그 '방법'으로, 모든 시간선을 고정시키려 해"),
+                    String::utf8("* 누굴 희생해서? 당연히 너 같은, 의지가 강한 실험체를"),
+                    String::utf8("* 그러니까, 제안 하나 할게"),
+                    String::utf8("* 동맹을 맺자, ") + global->get_player_name() + String::utf8(". 지금은 그들이 더 위험해"),
                 })
-            ));
+            ), Array::make(String::utf8("예"), String::utf8("아니요")));
+
+            sys->executeTrue([this]() { return global->get_player_text_box(); },
+            [this]() {
+                summontextbox()->character(Character::FLOWEY, sys->dia()->from(
+                    PackedStringArray({
+                        String::utf8("* 사실 뭘 선택하든간에"),
+                        String::utf8("* 그냥 동맹할 생각이였어"),
+                        String::utf8("* 잊었어? 여기는 죽거나 죽이거나 이잖아!"),
+                    })
+                ));
+            });    
         }, 1.3);
     }
 }
