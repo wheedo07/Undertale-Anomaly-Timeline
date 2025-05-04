@@ -88,13 +88,13 @@ shape = SubResource("RectangleShape2D_3ur0u")
 
 [node name="text_trigger" parent="trigger" instance=ExtResource("4_et7pl")]
 text = PackedStringArray("* ( 문이 열리지 않는다 다른 길을 찾아야 할거 같다 )")
-position = Vector2(231, 219)
+position = Vector2(231, 213)
 scale = Vector2(2, 1)
 
 [node name="text_trigger2" parent="trigger" instance=ExtResource("4_et7pl")]
 text = PackedStringArray("* ( ? 엘레베이터가 작동을 안한다 )")
-position = Vector2(327, 218)
-scale = Vector2(2, 1)
+position = Vector2(327, 212)
+scale = Vector2(2.3, 1)
 
 [node name="room2" parent="trigger" instance=ExtResource("5_k6kbm")]
 facing_direction = Vector2(1, 0)

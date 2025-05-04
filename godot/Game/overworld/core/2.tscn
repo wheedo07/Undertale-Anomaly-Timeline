@@ -43,12 +43,12 @@ position = Vector2(309, 254)
 
 [node name="text_trigger" parent="trigger" instance=ExtResource("5_k66xg")]
 text = PackedStringArray("* ( 더이상 읽을 필요 없다 )")
-position = Vector2(223, 223)
+position = Vector2(223, 218)
 scale = Vector2(2, 1)
 
 [node name="text_trigger2" parent="trigger" instance=ExtResource("5_k66xg")]
 text = PackedStringArray("* ( 여기 포스필드는 이미 꺼졌다 )")
-position = Vector2(390, 221)
+position = Vector2(390, 218)
 scale = Vector2(2, 1)
 
 [node name="room1" parent="trigger" instance=ExtResource("6_ys331")]

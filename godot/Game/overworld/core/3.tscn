@@ -54,12 +54,12 @@ position = Vector2(320, 315)
 
 [node name="text_trigger" parent="trigger" instance=ExtResource("6_rvccq")]
 text = PackedStringArray("* ( 더이상 읽을 필요 없다 )")
-position = Vector2(235, 231)
+position = Vector2(235, 227)
 scale = Vector2(2, 1)
 
 [node name="text_trigger2" parent="trigger" instance=ExtResource("6_rvccq")]
 text = PackedStringArray("* ( 더이상 읽을 필요 없다 )")
-position = Vector2(404, 231)
+position = Vector2(404, 226)
 scale = Vector2(2, 1)
 
 [node name="room2" parent="trigger" instance=ExtResource("7_5uqtv")]

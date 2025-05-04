@@ -44,7 +44,7 @@ position = Vector2(304, 305)
 
 [node name="text_trigger" parent="trigger" instance=ExtResource("3_xjaiq")]
 text = PackedStringArray("* ( 이 퍼즐은 이미 풀었다 )")
-position = Vector2(187, 219)
+position = Vector2(187, 215)
 scale = Vector2(2, 1)
 
 [node name="room3" parent="trigger" instance=ExtResource("6_datjl")]

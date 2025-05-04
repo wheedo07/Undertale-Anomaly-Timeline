@@ -40,7 +40,7 @@ position_smoothing_enabled = false
 
 [node name="text_trigger" parent="trigger" instance=ExtResource("5_ntmjk")]
 text = PackedStringArray("* ( 더이상 읽을 필요 없다 )", "* !?", "* 무언가 화면에 나타난다")
-position = Vector2(338, 182)
+position = Vector2(338, 178)
 scale = Vector2(2, 1)
 
 [node name="room7" parent="trigger" instance=ExtResource("6_8uhck")]
