@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://beqsriqjn24ii"]
+[gd_scene load_steps=11 format=3 uid="uid://beqsriqjn24ii"]
 
 [ext_resource type="AudioStream" uid="uid://n4nbydhkmdog" path="res://Musics/default2.wav" id="1_cca7k"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_ycn7q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="4_jel8k"]
 [ext_resource type="PackedScene" uid="uid://bl46cnf1qthmi" path="res://Overworld/Characters/flowey.tscn" id="5_5r334"]
 [ext_resource type="PackedScene" uid="uid://c8yexn6trfd1f" path="res://Game/text_trigger.tscn" id="6_fwuer"]
+[ext_resource type="AudioStream" uid="uid://cufeqx68k12br" path="res://Game/assets/audio/event/flowey_voice.mp3" id="6_gy6tj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h18tj"]
 size = Vector2(12, 180)
@@ -41,6 +42,9 @@ position = Vector2(13, 10)
 [node name="Flowey" parent="." instance=ExtResource("5_5r334")]
 position = Vector2(35, -23)
 scale = Vector2(0.999999, 1)
+
+[node name="voice" type="AudioStreamPlayer" parent="Flowey"]
+stream = ExtResource("6_gy6tj")
 
 [node name="trigger" type="Node2D" parent="."]
 
