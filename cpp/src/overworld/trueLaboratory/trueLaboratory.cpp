@@ -83,18 +83,27 @@ void TrueLaboratory::flowey_move() {
                     String::utf8("* 그러니까, 제안 하나 할게"),
                     String::utf8("* 동맹을 맺자, ") + global->get_player_name() + String::utf8(". 지금은 그들이 더 위험해"),
                 })
-            ), Array::make(String::utf8("예"), String::utf8("아니요")));
+            )->set_expressions(Array::make(2, 0, 3, 4, 5, 5, 4, 5, 1, 7, 7, 8, 7, 2)),
+            Array::make(String::utf8("예"), String::utf8("아니요")));
 
-            sys->executeTrue([this]() { return global->get_player_text_box(); },
-            [this]() {
-                summontextbox()->character(Character::FLOWEY, sys->dia()->from(
-                    PackedStringArray({
-                        String::utf8("* 사실 뭘 선택하든간에"),
-                        String::utf8("* 그냥 동맹할 생각이였어"),
-                        String::utf8("* 잊었어? 여기는 죽거나 죽이거나 이잖아!"),
-                    })
-                ));
-            });    
+            auto isFun = [this]() { return !global->get_player_text_box(); };
+            sys->sequence({
+                {[this]() {
+                    summontextbox()->character(Character::FLOWEY, sys->dia()->from(
+                        PackedStringArray({
+                            String::utf8("* 사실 뭘 선택하든간에"),
+                            String::utf8("* 그냥 동맹할 생각이였어"),
+                        })
+                    ));
+                }, isFun},
+                {[this]() {
+                    summontextbox()->character(Character::FLOWEY_EVIL, sys->dia()->from(
+                        PackedStringArray({
+                            String::utf8("* 잊었어? 여기는 죽거나 죽이거나 이잖아!")
+                        })
+                    ));
+                }, isFun}
+            });
         }, 1.3);
     }
 }
