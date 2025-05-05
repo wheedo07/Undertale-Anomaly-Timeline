@@ -54,7 +54,7 @@ void TrueLaboratory::move_1() {
     if(main2 == 1) {
         flowey->set_position(Vector2(player->get_position().x, -27));
         flowey->show();
-        flowey->play_anim("dig", 0.5, true);
+        flowey->play_anim("dig", 1, true);
         flowey->connect("animation_finished", Callable(flowey, "set_frame").bind(0), CONNECT_ONE_SHOT);
         flowey->connect("animation_finished", Callable(player, "force_direction").bind(Vector2(0, -1)), CONNECT_ONE_SHOT);
         sys->sleep([this, flowey]() {
