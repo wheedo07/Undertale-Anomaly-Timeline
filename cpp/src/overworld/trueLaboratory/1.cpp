@@ -52,7 +52,7 @@ void TrueLaboratory::move_1() {
     EnemyOverworld* flowey = Object::cast_to<EnemyOverworld>(get_node_internal("Flowey"));
     int main2 = global->get_flag("main2");
     if(main2 == 1) {
-        flowey->set_position(Vector2(player->get_position().x, -27));
+        flowey->set_position(Vector2(player->get_position().x, 5));
         flowey->show();
         flowey->play_anim("dig", 1, true);
         flowey->connect("animation_finished", Callable(flowey, "set_frame").bind(0), CONNECT_ONE_SHOT);

@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0kpo6bd5ccie"]
+
+[ext_resource type="AudioStream" uid="uid://n4nbydhkmdog" path="res://Musics/default2.wav" id="1_wr8ne"]
+[ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_bvwjp"]
+[ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="3_7i2r7"]
+[ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="4_xolf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5kyi"]
+size = Vector2(522, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikkkp"]
+size = Vector2(21, 50)
+
+[node name="true_2" type="Overworld" node_paths=PackedStringArray("room_entrances")]
+player_path = NodePath("PlayerOverworld")
+camera_path = NodePath("PlayerOverworld/Camera")
+music = ExtResource("1_wr8ne")
+room_entrances = [NodePath("trigger/room_1"), NodePath("trigger/room_3")]
+y_sort_enabled = true
+
+[node name="image" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(37.25, 21)
+texture = ExtResource("2_bvwjp")
+region_enabled = true
+region_rect = Rect2(574, 982, 527, 183)
+metadata/_edit_lock_ = true
+
+[node name="PlayerOverworld" parent="." instance=ExtResource("4_xolf6")]
+position = Vector2(262, 65)
+
+[node name="Camera" parent="PlayerOverworld" instance=ExtResource("3_7i2r7")]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = false
+limit_right = 300
+
+[node name="trigger" type="Node2D" parent="."]
+
+[node name="room_1" type="RoomEntranceNode" parent="trigger"]
+facing_direction = Vector2(-1, 0)
+door_id = 1
+new_room = "res://Game/overworld/trueLaboratory/1.tscn"
+new_room_entrance_id = 2
+offset_left = 278.0
+offset_top = 43.0
+offset_right = 289.0
+offset_bottom = 82.0
+pivot_offset = Vector2(-14, 17)
+
+[node name="room_3" type="RoomEntranceNode" parent="trigger"]
+facing_direction = Vector2(0, 1)
+door_id = 3
+new_room = "res://Game/overworld/trueLaboratory/3.tscn"
+new_room_entrance_id = 2
+offset_left = -197.0
+offset_top = 29.0
+offset_right = -163.0
+offset_bottom = 46.0
+pivot_offset = Vector2(17, 26)
+
+[node name="static" type="StaticBody2D" parent="."]
+
+[node name="1" type="CollisionShape2D" parent="static"]
+position = Vector2(39, 94.5)
+shape = SubResource("RectangleShape2D_b5kyi")
+
+[node name="2" type="CollisionShape2D" parent="static"]
+position = Vector2(39, 30.5)
+shape = SubResource("RectangleShape2D_b5kyi")
+
+[node name="3" type="CollisionShape2D" parent="static"]
+position = Vector2(-230.5, 60)
+shape = SubResource("RectangleShape2D_ikkkp")

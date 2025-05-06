@@ -36,7 +36,7 @@ region_rect = Rect2(2344, 968, 400, 256)
 metadata/_edit_lock_ = true
 
 [node name="Save" parent="." instance=ExtResource("3_bp0c0")]
-save_text = PackedStringArray("* 당신의 여정은 끝나지 않은거 같다", "* 당신은 의지로 가득찬다")
+save_text = PackedStringArray("* 의지")
 position = Vector2(320, 245)
 
 [node name="Camera" parent="Save" instance=ExtResource("4_733o5")]

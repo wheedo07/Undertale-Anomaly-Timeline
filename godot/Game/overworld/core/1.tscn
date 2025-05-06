@@ -42,7 +42,7 @@ region_rect = Rect2(3025.66, 808, 754.102, 206.214)
 metadata/_edit_lock_ = true
 
 [node name="Save" parent="." instance=ExtResource("3_sx1mm")]
-save_text = PackedStringArray("* 무언가 불길한 기운이 당신을 감싼다", "* 그럼에도 당신은 의지로 가득찬다")
+save_text = PackedStringArray("* 의지")
 position = Vector2(377, 232)
 
 [node name="PlayerOverworld" parent="." instance=ExtResource("3_yiaqt")]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl0jujp7f2trg"]
+
+[ext_resource type="AudioStream" uid="uid://n4nbydhkmdog" path="res://Musics/default2.wav" id="1_nxnbg"]
+[ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_5ijtm"]
+[ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="3_w1i3w"]
+[ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="4_uqlbi"]
+[ext_resource type="PackedScene" uid="uid://gyhc83v53iax" path="res://Overworld/Interactions/save.tscn" id="5_wor0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5otqw"]
+size = Vector2(240, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r1yl"]
+size = Vector2(140, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ih2"]
+size = Vector2(22, 292)
+
+[node name="true_4" type="Overworld"]
+world_name = "진실의 연구소"
+player_path = NodePath("PlayerOverworld")
+camera_path = NodePath("image/Camera")
+music = ExtResource("1_nxnbg")
+y_sort_enabled = true
+
+[node name="image" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(37.25, 21)
+texture = ExtResource("2_5ijtm")
+region_enabled = true
+region_rect = Rect2(1100, 1261, 321, 320)
+metadata/_edit_lock_ = true
+
+[node name="Camera" parent="image" instance=ExtResource("4_uqlbi")]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = false
+position = Vector2(0, 50)
+
+[node name="PlayerOverworld" parent="." instance=ExtResource("3_w1i3w")]
+position = Vector2(61, 70)
+
+[node name="trigger" type="Node2D" parent="."]
+
+[node name="Save" parent="trigger" instance=ExtResource("5_wor0q")]
+save_text = PackedStringArray("* 의지")
+position = Vector2(-53, 93)
+
+[node name="room_1" type="RoomEntranceNode" parent="trigger"]
+facing_direction = Vector2(0, 1)
+door_id = 1
+new_room = "res://Game/overworld/trueLaboratory/1.tscn"
+new_room_entrance_id = 4
+offset_left = 16.0
+offset_right = 58.0
+offset_bottom = 15.0
+pivot_offset = Vector2(21, 23)
+
+[node name="static" type="StaticBody2D" parent="."]
+
+[node name="1" type="CollisionShape2D" parent="static"]
+position = Vector2(37, -60)
+shape = SubResource("RectangleShape2D_5otqw")
+
+[node name="2" type="CollisionShape2D" parent="static"]
+position = Vector2(-53, 147.5)
+shape = SubResource("RectangleShape2D_7r1yl")
+
+[node name="3" type="CollisionShape2D" parent="static"]
+position = Vector2(127, 147.5)
+shape = SubResource("RectangleShape2D_7r1yl")
+
+[node name="4" type="CollisionShape2D" parent="static"]
+position = Vector2(-134, 12)
+shape = SubResource("RectangleShape2D_d0ih2")
+
+[node name="5" type="CollisionShape2D" parent="static"]
+position = Vector2(210, 12)
+shape = SubResource("RectangleShape2D_d0ih2")
