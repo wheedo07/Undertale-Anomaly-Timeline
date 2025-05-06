@@ -24,7 +24,7 @@ size = Vector2(122, 20)
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
 music = ExtResource("1_cca7k")
-room_entrances = [NodePath("trigger/room_2")]
+room_entrances = [NodePath("trigger/room_2"), NodePath("trigger/room_4")]
 y_sort_enabled = true
 
 [node name="image" type="Sprite2D" parent="."]

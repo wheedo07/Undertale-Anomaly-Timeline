@@ -15,11 +15,12 @@ size = Vector2(140, 67)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ih2"]
 size = Vector2(22, 292)
 
-[node name="true_4" type="Overworld"]
+[node name="true_4" type="Overworld" node_paths=PackedStringArray("room_entrances")]
 world_name = "진실의 연구소"
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
 music = ExtResource("1_nxnbg")
+room_entrances = [NodePath("trigger/room_1")]
 y_sort_enabled = true
 
 [node name="image" type="Sprite2D" parent="."]
