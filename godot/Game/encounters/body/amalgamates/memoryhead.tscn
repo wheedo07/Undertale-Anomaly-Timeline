@@ -9,9 +9,9 @@ shader_parameter/time = 0.0
 shader_parameter/distortion_strength = 0.001
 shader_parameter/glitch_frequency = 1.5
 
-[node name="memoryhead" type="Node2D"]
+[node name="body" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_1x0w0")
 scale = Vector2(0.324159, 0.307216)
 texture = ExtResource("2_qqe3y")
