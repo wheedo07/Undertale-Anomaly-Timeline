@@ -1,0 +1,140 @@
+[gd_scene load_steps=22 format=3 uid="uid://t0c2pfo4phyx"]
+
+[ext_resource type="PackedScene" uid="uid://d3a4i072fdvkh" path="res://Game/encounters/body/amalgamates/endogeny.tscn" id="1_vad3j"]
+[ext_resource type="Shader" uid="uid://5h6o16kson3k" path="res://Enemies/dust/undertale_dust.tres" id="2_ops74"]
+[ext_resource type="Texture2D" uid="uid://v2uk8ex2yh8f" path="res://Enemies/dust/default_dust.png" id="3_64k08"]
+[ext_resource type="Texture2D" uid="uid://bw02r33khpc4w" path="res://particles/smoke.png" id="4_wjqbi"]
+[ext_resource type="PackedScene" uid="uid://d3j04wql8n25c" path="res://Battle/Misc/dialogue.tscn" id="5_0phd1"]
+[ext_resource type="AudioStream" uid="uid://b7moo5do6vq5i" path="res://Game/assets/audio/sfx/endogeny.wav" id="6_8t3ia"]
+[ext_resource type="AudioStream" uid="uid://dtoo70e1wko8r" path="res://sfx/snd_vaporized.wav" id="7_rgntw"]
+
+[sub_resource type="ActInfo" id="ActInfo_211rv"]
+description = PackedStringArray("* 엔도제니 - ATK 9 DEF 99\n*이것을 개 몇 마리로 쳐 줘야 할지 모르겠다.")
+
+[sub_resource type="ActInfo" id="ActInfo_jhguq"]
+act = "* 쓰다듬기"
+description = PackedStringArray()
+
+[sub_resource type="ActInfo" id="ActInfo_y2cw7"]
+act = "* 부르기"
+description = PackedStringArray()
+
+[sub_resource type="ActInfo" id="ActInfo_bgop2"]
+act = "* 놀아주기"
+description = PackedStringArray()
+
+[sub_resource type="EnemyState" id="EnemyState_46wp6"]
+acts = Array[ActInfo]([SubResource("ActInfo_211rv"), SubResource("ActInfo_jhguq"), SubResource("ActInfo_y2cw7"), SubResource("ActInfo_bgop2")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gml0"]
+shader = ExtResource("2_ops74")
+shader_parameter/progress = 0.0
+shader_parameter/particle_lifetime_fraction = 0.5
+shader_parameter/connect_lines = true
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 10.0
+shader_parameter/initial_linear_velocity = 40.0
+shader_parameter/linear_accel = 20.0
+shader_parameter/initial_linear_velocity_random = 0.4
+shader_parameter/linear_accel_random = 0.15
+shader_parameter/lifetime_randomness = 0.2
+shader_parameter/sprite = ExtResource("3_64k08")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_awm6t"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_eo8dh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.25874, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2t0oe"]
+curve = SubResource("Curve_eo8dh")
+
+[sub_resource type="Curve" id="Curve_beou8"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lx7ot"]
+curve = SubResource("Curve_beou8")
+
+[sub_resource type="Curve" id="Curve_gqirp"]
+_data = [Vector2(0, 1), 0.0, -1.74636, 0, 0, Vector2(1, 0), -0.375671, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rdf7h"]
+curve = SubResource("Curve_gqirp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ss5yn"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 20.0
+direction = Vector3(1, 1, 0)
+spread = 0.0
+radial_velocity_min = 160.0
+radial_velocity_max = 160.0
+radial_velocity_curve = SubResource("CurveTexture_rdf7h")
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_2t0oe")
+anim_offset_curve = SubResource("CurveTexture_lx7ot")
+
+[node name="endogeny" type="Enemy"]
+enemy_name = "엔도제니"
+stats = {
+"def": 99,
+"hp": 100,
+"max_hp": 100
+}
+flavour_text = PackedStringArray("* 융합체", "* 두려움의 떨고 있다", "* 죽여라")
+enemy_states = [SubResource("EnemyState_46wp6")]
+hurt_sound_path = NodePath("Sounds/Hurt")
+dust_sound_path = NodePath("Sounds/Dust")
+dust_path = NodePath("Dust")
+sprites_path = NodePath("body")
+dialogue_path = NodePath("Dialogue")
+
+[node name="body" parent="." instance=ExtResource("1_vad3j")]
+position = Vector2(0, -68)
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+position = Vector2(-108, -120)
+scale = Vector2(2, 0.85)
+emitting = false
+amount = 16000
+process_material = SubResource("ShaderMaterial_3gml0")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-6.06821, -19.7972, 119.866, 163.797)
+local_coords = true
+
+[node name="Spare" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_awm6t")
+position = Vector2(3, -63)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_ss5yn")
+texture = ExtResource("4_wjqbi")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-141.412, -148.057, 285.059, 248.057)
+local_coords = true
+
+[node name="Dialogue" parent="." instance=ExtResource("5_0phd1")]
+custom_character = 1
+offset_left = 78.0
+offset_top = -140.0
+offset_right = 256.0
+offset_bottom = -30.0
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_8t3ia")
+bus = &"SFX"
+
+[node name="Dust" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_rgntw")
+bus = &"SFX"
