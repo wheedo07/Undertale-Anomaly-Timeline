@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fre21pgdmrx7"]
+
+[ext_resource type="Shader" path="res://Shaders/amalgamates.gdshader" id="1_fs1vv"]
+[ext_resource type="Texture2D" uid="uid://dewuw8yvl58sp" path="res://Game/assets/sprite/sheet/amalgamates.png" id="2_qqe3y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1x0w0"]
+shader = ExtResource("1_fs1vv")
+shader_parameter/time = 0.0
+shader_parameter/distortion_strength = 0.001
+shader_parameter/glitch_frequency = 1.5
+
+[node name="memoryhead" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1x0w0")
+scale = Vector2(0.324159, 0.307216)
+texture = ExtResource("2_qqe3y")
+region_enabled = true
+region_rect = Rect2(836, 389, 248, 185)

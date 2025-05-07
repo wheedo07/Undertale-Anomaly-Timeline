@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxjspbodtq2dt"]
+
+[ext_resource type="Shader" path="res://Shaders/amalgamates.gdshader" id="1_n6fd6"]
+[ext_resource type="Texture2D" uid="uid://dewuw8yvl58sp" path="res://Game/assets/sprite/sheet/amalgamates.png" id="1_yquae"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1x0w0"]
+shader = ExtResource("1_n6fd6")
+shader_parameter/time = 0.0
+shader_parameter/distortion_strength = 0.002
+shader_parameter/glitch_frequency = 0.01
+
+[node name="snowdrake" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1x0w0")
+scale = Vector2(0.324159, 0.307216)
+texture = ExtResource("1_yquae")
+region_enabled = true
+region_rect = Rect2(1096, 200, 327, 388)
