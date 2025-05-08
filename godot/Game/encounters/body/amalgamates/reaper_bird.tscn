@@ -1,0 +1,88 @@
+[gd_scene load_steps=18 format=3 uid="uid://b4ejg2w6mywgg"]
+
+[ext_resource type="Texture2D" uid="uid://bo78x4uk2oojx" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_0.png" id="1_ota75"]
+[ext_resource type="Texture2D" uid="uid://c8tj2pjuejsbg" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_1.png" id="2_piy2b"]
+[ext_resource type="Texture2D" uid="uid://bowvmptbyetmp" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_2.png" id="3_uyf0j"]
+[ext_resource type="Texture2D" uid="uid://pmblafo3pclt" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_3.png" id="4_0ybgk"]
+[ext_resource type="Texture2D" uid="uid://jey4sdvxaexj" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_4.png" id="5_3khsr"]
+[ext_resource type="Texture2D" uid="uid://bkhieaqhsjxf8" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_5.png" id="6_4dayi"]
+[ext_resource type="Texture2D" uid="uid://si0df0l3dfdn" path="res://Game/assets/sprite/head/reaper_bird/spr_reaperbird_head_6.png" id="7_0cyo2"]
+[ext_resource type="Texture2D" uid="uid://6qn3sd802puf" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_0.png" id="8_5mhf4"]
+[ext_resource type="Texture2D" uid="uid://v60iurusalch" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_1.png" id="9_urt55"]
+[ext_resource type="Texture2D" uid="uid://ucbv8bla4ob6" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_2.png" id="10_vlvio"]
+[ext_resource type="Texture2D" uid="uid://l6asdudob4ys" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_3.png" id="11_day1t"]
+[ext_resource type="Texture2D" uid="uid://bj066l00dkagf" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_4.png" id="12_07slf"]
+[ext_resource type="Texture2D" uid="uid://di48vlv8j1gvs" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_5.png" id="13_7j5b3"]
+[ext_resource type="Texture2D" uid="uid://bagmhqodkoqla" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_6.png" id="14_6uwsi"]
+[ext_resource type="Texture2D" uid="uid://c5oka6va07qbq" path="res://Game/assets/sprite/body/reaper_bird/spr_reaperbird_torso_7.png" id="15_82uq3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xipkj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ota75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_piy2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uyf0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ybgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3khsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4dayi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0cyo2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k45cg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5mhf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_urt55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vlvio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_day1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_07slf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7j5b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6uwsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_82uq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemy" type="Node2D"]
+
+[node name="head" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(2, -47)
+sprite_frames = SubResource("SpriteFrames_xipkj")
+
+[node name="body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k45cg")

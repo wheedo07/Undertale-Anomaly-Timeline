@@ -1,19 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://fre21pgdmrx7"]
+[gd_scene load_steps=6 format=3 uid="uid://fre21pgdmrx7"]
 
-[ext_resource type="Shader" path="res://Shaders/amalgamates.gdshader" id="1_fs1vv"]
-[ext_resource type="Texture2D" uid="uid://dewuw8yvl58sp" path="res://Game/assets/sprite/sheet/amalgamates.png" id="2_qqe3y"]
+[ext_resource type="Texture2D" uid="uid://dy0i2as5f7xfr" path="res://Game/assets/sprite/anim/memoryhead/spr_memoryhead_0.png" id="1_3y0l8"]
+[ext_resource type="Texture2D" uid="uid://c7vwbaopsykkr" path="res://Game/assets/sprite/anim/memoryhead/spr_memoryhead_1.png" id="2_q4fti"]
+[ext_resource type="Texture2D" uid="uid://dy7ka588spyih" path="res://Game/assets/sprite/anim/memoryhead/spr_memoryhead_2.png" id="3_jiig2"]
+[ext_resource type="Texture2D" uid="uid://cydlbfsf6ids5" path="res://Game/assets/sprite/anim/memoryhead/spr_memoryhead_3.png" id="4_cs58r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1x0w0"]
-shader = ExtResource("1_fs1vv")
-shader_parameter/time = 0.0
-shader_parameter/distortion_strength = 0.001
-shader_parameter/glitch_frequency = 1.5
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8tu0"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("1_3y0l8")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_q4fti")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_jiig2")
+}, {
+"duration": 1.5,
+"texture": ExtResource("4_cs58r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="body" type="Node2D"]
+[node name="enemy" type="Node2D"]
 
-[node name="sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_1x0w0")
-scale = Vector2(0.324159, 0.307216)
-texture = ExtResource("2_qqe3y")
-region_enabled = true
-region_rect = Rect2(836, 389, 248, 185)
+[node name="body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x8tu0")

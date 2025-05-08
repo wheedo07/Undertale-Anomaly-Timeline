@@ -92,10 +92,10 @@ enemy_states = [SubResource("EnemyState_46wp6")]
 hurt_sound_path = NodePath("Sounds/Hurt")
 dust_sound_path = NodePath("Sounds/Dust")
 dust_path = NodePath("Dust")
-sprites_path = NodePath("body")
+sprites_path = NodePath("enemy")
 dialogue_path = NodePath("Dialogue")
 
-[node name="body" parent="." instance=ExtResource("1_vad3j")]
+[node name="enemy" parent="." instance=ExtResource("1_vad3j")]
 position = Vector2(0, -68)
 
 [node name="Dust" type="GPUParticles2D" parent="."]
@@ -124,9 +124,9 @@ local_coords = true
 
 [node name="Dialogue" parent="." instance=ExtResource("5_0phd1")]
 custom_character = 1
-offset_left = 78.0
+offset_left = 107.0
 offset_top = -140.0
-offset_right = 256.0
+offset_right = 285.0
 offset_bottom = -30.0
 
 [node name="Sounds" type="Node" parent="."]
@@ -138,3 +138,5 @@ bus = &"SFX"
 [node name="Dust" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_rgntw")
 bus = &"SFX"
+
+[editable path="enemy"]
