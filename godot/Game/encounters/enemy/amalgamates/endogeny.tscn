@@ -80,7 +80,7 @@ gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_2t0oe")
 anim_offset_curve = SubResource("CurveTexture_lx7ot")
 
-[node name="endogeny" type="Enemy"]
+[node name="endogeny" type="Enemy_Amalgamates"]
 enemy_name = "엔도제니"
 stats = {
 "def": 99,

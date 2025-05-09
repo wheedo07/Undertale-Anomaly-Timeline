@@ -17,7 +17,9 @@ void register_init() {
 
     // enemy Node
     GDREGISTER_CLASS(Enemy_SANS1);
+    GDREGISTER_CLASS(Enemy_Amalgamates);
 
     // attackNode
     GDREGISTER_CLASS(AttackSans1);
+    GDREGISTER_CLASS(AttackAmalgamates);
 }

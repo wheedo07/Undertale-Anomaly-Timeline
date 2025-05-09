@@ -7,10 +7,12 @@
 #include "trigger/text_trigger.h"
 #include "trigger/move_trigger.h"
 #include "mainAttacks/sans_1/attack_sans1.h"
+#include "mainAttacks/amalgamates/attack_amalgamates.h"
 #include "overworld/coreNode/coreNode.h"
 #include "overworld/laboratoryNode/laboratoryNode.h"
 #include "overworld/trueLaboratory/trueLaboratory.h"
 #include "enemy/sans_1/enemy_sans1.h"
+#include "enemy/amalgamates/enemy_amalgamates.h"
 using namespace godot;
 
 void register_init();
