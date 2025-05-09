@@ -1,0 +1,94 @@
+[gd_scene load_steps=17 format=3 uid="uid://dxnbw3taleteb"]
+
+[ext_resource type="Texture2D" uid="uid://66pgkbyc6ivr" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_0.png" id="1_exyjb"]
+[ext_resource type="Texture2D" uid="uid://biq81rn6ir135" path="res://Game/assets/sprite/anim/nofacedog/legtuck/spr_nofacedog_legtuck_0.png" id="1_jt23r"]
+[ext_resource type="Texture2D" uid="uid://bfusyobdvgkle" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_1.png" id="2_5yl6q"]
+[ext_resource type="Texture2D" uid="uid://1kjluroohcgp" path="res://Game/assets/sprite/anim/nofacedog/legtuck/spr_nofacedog_legtuck_1.png" id="2_kkdvh"]
+[ext_resource type="Texture2D" uid="uid://dtf36ltgcuj2x" path="res://Game/assets/sprite/anim/nofacedog/legtuck/spr_nofacedog_legtuck_2.png" id="3_j7xvd"]
+[ext_resource type="Texture2D" uid="uid://1ich7hnivp7y" path="res://Game/assets/sprite/anim/nofacedog/legtuck/spr_nofacedog_legtuck_3.png" id="4_uishj"]
+[ext_resource type="Texture2D" uid="uid://bk50jtbvteefm" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_2.png" id="7_lj7os"]
+[ext_resource type="Texture2D" uid="uid://cs0c7lmyn8dok" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_3.png" id="8_spptk"]
+[ext_resource type="Texture2D" uid="uid://ca6vg0kxkyv4a" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_4.png" id="9_qml1b"]
+[ext_resource type="Texture2D" uid="uid://djsfk5wqrbx70" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_5.png" id="10_0mnlc"]
+[ext_resource type="Texture2D" uid="uid://ctqfmyoixh41p" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_6.png" id="11_nny8t"]
+[ext_resource type="Texture2D" uid="uid://lyqheeegqu1e" path="res://Game/assets/sprite/anim/nofacedog/mouth/spr_nofacedog_7.png" id="12_ieibt"]
+[ext_resource type="Texture2D" uid="uid://coq0qu2k0gvcf" path="res://Game/assets/sprite/anim/nofacedog/rocket/spr_nofacedog_rocket_0.png" id="13_j5qnw"]
+[ext_resource type="Texture2D" uid="uid://bpq0i3npmyxhs" path="res://Game/assets/sprite/anim/nofacedog/rocket/spr_nofacedog_rocket_1.png" id="14_ryyrt"]
+[ext_resource type="Texture2D" uid="uid://boqwxitutaxcf" path="res://Game/assets/sprite/anim/nofacedog/rocket/spr_nofacedog_rocket_2.png" id="15_8efq1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0nyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jt23r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kkdvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j7xvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uishj")
+}],
+"loop": true,
+"name": &"legtuck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_exyjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5yl6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lj7os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_spptk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qml1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0mnlc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nny8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ieibt")
+}],
+"loop": true,
+"name": &"mouth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_j5qnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ryyrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8efq1")
+}],
+"loop": true,
+"name": &"rocket",
+"speed": 5.0
+}]
+
+[node name="Nofacedog" type="Nofacedog"]
+area_path = NodePath("BulletArea")
+collision_path = NodePath("BulletArea/CollisionShape2D")
+sprite_path = NodePath("sprite")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o0nyp")
+animation = &"legtuck"
+autoplay = "rocket"
+
+[node name="BulletArea" type="BulletArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]

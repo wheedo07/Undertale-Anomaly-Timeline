@@ -25,11 +25,13 @@ void AttackSans1::turn_0() {
                     Bone* b = create_bone(Masking::ABSOLUTE_CLIP);
                     b->set_rotation_degrees(180);
                     b->set_position(Vector2(90, 400));
-                    b->fire(Vector2(420, 400), Bullet::MOVEMENT_VELOCITY, 200)->tween_height(wave_height_1, 0.3);
+                    b->fire(Vector2(420, 400), Bullet::MOVEMENT_VELOCITY, 200);
+                    b->tween_height(wave_height_1, 0.3);
                     
                     Bone* b2 = create_bone(Masking::ABSOLUTE_CLIP);
                     b2->set_position(Vector2(90, 250));
-                    b2->fire(Vector2(420, 250), Bullet::MOVEMENT_VELOCITY, 200)->tween_height(wave_height_2, 0.3);
+                    b2->fire(Vector2(420, 250), Bullet::MOVEMENT_VELOCITY, 200);
+                    b2->tween_height(wave_height_2, 0.3);
 
                     sys->sleep([this, b, b2]() { b->queue_free(); b2->queue_free(); }, 1.8);
                     *time = 0;
@@ -93,13 +95,15 @@ void AttackSans1::turn_0() {
             b->set_rotation_degrees(180);
             b->set_position(Vector2(120, 400));
             b->set_mode(Bullet::MODE_BLUE);
-            b->fire(Vector2(420, 400), Bullet::MOVEMENT_TWEEN, 160)->tween_height(150, 0.1);
+            b->fire(Vector2(420, 400), Bullet::MOVEMENT_TWEEN, 160);
+            b->tween_height(150, 0.1);
             
             Bone* b2 = create_bone(Masking::ABSOLUTE_CLIP);
             b2->set_rotation_degrees(180);
             b2->set_position(Vector2(520, 400));
             b2->set_mode(Bullet::MODE_BLUE);
-            b2->fire(Vector2(220, 400), Bullet::MOVEMENT_TWEEN, 160)->tween_height(150, 0.1);
+            b2->fire(Vector2(220, 400), Bullet::MOVEMENT_TWEEN, 160);
+            b2->tween_height(150, 0.1);
             sys->sleep([this, b, b2]() { b->queue_free(); b2->queue_free(); }, 1.8);
         }, 10.2},
         {[this]() {

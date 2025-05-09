@@ -22,4 +22,7 @@ void register_init() {
     // attackNode
     GDREGISTER_CLASS(AttackSans1);
     GDREGISTER_CLASS(AttackAmalgamates);
+
+    // Bullets Node
+    GDREGISTER_CLASS(Nofacedog);
 }
