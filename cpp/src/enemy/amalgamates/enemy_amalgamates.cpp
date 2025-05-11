@@ -23,9 +23,25 @@ void Enemy_Amalgamates::_bind_methods() {
 
 void Enemy_Amalgamates::ready() {
     attackScene = ResourceLoader::get_singleton()->load("res://Game/mainAttacks/attack_amalgamates.tscn");
+    sprite_body = Object::cast_to<AnimatedSprite2D>(get_sprites()->get_child(0));
+
+    if(type == Endogeny) {
+        shader = sprite_body->get_material();
+        shader->set_shader_parameter("time", 0);
+    }
+}
+
+void Enemy_Amalgamates::_process(double delta) {
+    if(!shader.is_valid()) return;
+    double time = shader->get_shader_parameter("time");
+    time += delta;
+    shader->set_shader_parameter("time", time);
 }
 
 void Enemy_Amalgamates::_on_get_turn() {
+    sys->sleep([this]() {
+        attacks->force_end_attacks();
+    }, 5);
 }
 
 AttackAmalgamates* Enemy_Amalgamates::create_attack() {

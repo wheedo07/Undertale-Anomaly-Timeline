@@ -3,6 +3,7 @@
 
 #include "engine/Battle/enemy.h"
 #include "engine/Battle/battle_system.h"
+#include<godot_cpp/classes/shader_material.hpp>
 namespace godot {
     enum AmalgamatesType {
         Endogeny,
@@ -22,6 +23,8 @@ namespace godot {
         private:
             AmalgamatesType type;
             Ref<PackedScene> attackScene;
+            Ref<ShaderMaterial> shader;
+            AnimatedSprite2D* sprite_body;
 
             void set_amalgamates(AmalgamatesType value);
             AmalgamatesType get_amalgamates() const;
@@ -31,6 +34,7 @@ namespace godot {
             ~Enemy_Amalgamates();
 
             void ready() override;
+            void _process(double delta) override;
             void _on_get_turn() override;
 
             AttackAmalgamates* create_attack();

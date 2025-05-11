@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://t0c2pfo4phyx"]
+[gd_scene load_steps=23 format=3 uid="uid://t0c2pfo4phyx"]
 
 [ext_resource type="PackedScene" uid="uid://d3a4i072fdvkh" path="res://Game/encounters/body/amalgamates/endogeny.tscn" id="1_vad3j"]
 [ext_resource type="Shader" uid="uid://5h6o16kson3k" path="res://Enemies/dust/undertale_dust.tres" id="2_ops74"]
@@ -23,8 +23,12 @@ description = PackedStringArray()
 act = "* 놀아주기"
 description = PackedStringArray()
 
+[sub_resource type="ActInfo" id="ActInfo_dthii"]
+act = "* 무시하기"
+description = PackedStringArray()
+
 [sub_resource type="EnemyState" id="EnemyState_46wp6"]
-acts = Array[ActInfo]([SubResource("ActInfo_211rv"), SubResource("ActInfo_jhguq"), SubResource("ActInfo_y2cw7"), SubResource("ActInfo_bgop2")])
+acts = Array[ActInfo]([SubResource("ActInfo_211rv"), SubResource("ActInfo_jhguq"), SubResource("ActInfo_y2cw7"), SubResource("ActInfo_bgop2"), SubResource("ActInfo_dthii")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3gml0"]
 shader = ExtResource("2_ops74")
@@ -87,6 +91,7 @@ stats = {
 "hp": 100,
 "max_hp": 100
 }
+one_by_one_overrdie = true
 flavour_text = PackedStringArray("* 융합체", "* 두려움의 떨고 있다", "* 죽여라")
 enemy_states = [SubResource("EnemyState_46wp6")]
 hurt_sound_path = NodePath("Sounds/Hurt")

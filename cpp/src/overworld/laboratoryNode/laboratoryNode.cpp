@@ -79,7 +79,7 @@ void LaboratoryNode::init() {
                 )->set_expressions(Array::make(4, 4, 3, 9, 17)));
             }, isFun},
             {[this]() {
-                sys->load_battle("res://Game/encounters/sans_1.tres",  Vector2(324, 323));
+                sys->load_battle("res://Game/encounters/tres/sans_1.tres",  Vector2(324, 323));
             }, isFun}
         });
     }else {

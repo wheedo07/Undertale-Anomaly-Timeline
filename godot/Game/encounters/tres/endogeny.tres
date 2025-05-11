@@ -1,0 +1,10 @@
+[gd_resource type="Encounter" load_steps=3 format=3 uid="uid://c2tk8eqv38pme"]
+
+[ext_resource type="PackedScene" uid="uid://t0c2pfo4phyx" path="res://Game/encounters/enemy/amalgamates/endogeny.tscn" id="1_khpsr"]
+[ext_resource type="AudioStream" uid="uid://dchqf2l2n5x5x" path="res://Game/assets/audio/battle/trueLaboratory.mp3" id="2_8m6hs"]
+
+[resource]
+encounter_name = &"Endogeny"
+enemies = Array[PackedScene]([ExtResource("1_khpsr")])
+music = ExtResource("2_8m6hs")
+flee_chance = 0.5

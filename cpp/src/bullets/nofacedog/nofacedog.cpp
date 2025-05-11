@@ -9,4 +9,5 @@ void Nofacedog::_bind_methods() {
 }
 
 void Nofacedog::ready() {
+    DefaultBullet::ready();
 }

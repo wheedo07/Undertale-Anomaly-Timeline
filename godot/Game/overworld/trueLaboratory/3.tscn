@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmg0363vy4ihv"]
 
-[ext_resource type="AudioStream" uid="uid://n4nbydhkmdog" path="res://Musics/default2.wav" id="1_7uq5v"]
+[ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_gkvte"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_o2fkn"]
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="3_6svcl"]
 [ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="4_qrttq"]
@@ -18,7 +18,7 @@ size = Vector2(244, 5)
 [node name="true_3" type="Overworld" node_paths=PackedStringArray("room_entrances")]
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
-music = ExtResource("1_7uq5v")
+music = ExtResource("1_gkvte")
 room_entrances = [NodePath("trigger/room_2")]
 y_sort_enabled = true
 

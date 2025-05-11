@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl0jujp7f2trg"]
+[gd_scene load_steps=11 format=3 uid="uid://dl0jujp7f2trg"]
 
-[ext_resource type="AudioStream" uid="uid://n4nbydhkmdog" path="res://Musics/default2.wav" id="1_nxnbg"]
+[ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_1hobh"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_5ijtm"]
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="3_w1i3w"]
 [ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="4_uqlbi"]
+[ext_resource type="Encounter" uid="uid://c2tk8eqv38pme" path="res://Game/encounters/tres/endogeny.tres" id="5_c005o"]
 [ext_resource type="PackedScene" uid="uid://gyhc83v53iax" path="res://Overworld/Interactions/save.tscn" id="5_wor0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5otqw"]
@@ -15,11 +16,14 @@ size = Vector2(140, 67)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ih2"]
 size = Vector2(22, 292)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h41bh"]
+size = Vector2(29, 20)
+
 [node name="true_4" type="Overworld" node_paths=PackedStringArray("room_entrances")]
 world_name = "진실의 연구소"
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
-music = ExtResource("1_nxnbg")
+music = ExtResource("1_1hobh")
 room_entrances = [NodePath("trigger/room_1")]
 y_sort_enabled = true
 
@@ -38,6 +42,7 @@ position_smoothing_enabled = false
 position = Vector2(0, 50)
 
 [node name="PlayerOverworld" parent="." instance=ExtResource("3_w1i3w")]
+Encounters = Array[Encounter]([ExtResource("5_c005o")])
 position = Vector2(61, 70)
 
 [node name="trigger" type="Node2D" parent="."]
@@ -77,3 +82,7 @@ shape = SubResource("RectangleShape2D_d0ih2")
 [node name="5" type="CollisionShape2D" parent="static"]
 position = Vector2(210, 12)
 shape = SubResource("RectangleShape2D_d0ih2")
+
+[node name="6" type="CollisionShape2D" parent="static"]
+position = Vector2(-28.5, 11)
+shape = SubResource("RectangleShape2D_h41bh")
