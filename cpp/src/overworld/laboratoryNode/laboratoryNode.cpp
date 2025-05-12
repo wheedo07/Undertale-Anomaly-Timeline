@@ -41,54 +41,44 @@ void LaboratoryNode::init() {
             }, 1.5f},
             {[this]() {
                 if(global->get_flag("sans_1_death")) {
-                    summontextbox()->character(Character::SANS, sys->dia()->from(
-                        PackedStringArray({
-                            String::utf8("* 헤헤"),
-                            String::utf8("* 계속해볼까?"),
-                        })
-                    )->set_expressions(Array::make(1, 5)));
-                }else summontextbox()->character(Character::SANS, sys->dia()->from(
-                    PackedStringArray({
-                        String::utf8("* 헤. 따라오고 있었어?"),
-                        String::utf8("* 여기까지 오느라 바빴나 보네"),
-                        String::utf8("* 그 손에 묻은 먼지는 꽤 많아 보이는데... 몬스터를 많이 만났나 봐..?"),
-                        String::utf8("* 어째서 왜? 여전히 이런 길을 선택한 거지? 호기심? 지루함? 아니면..."),
-                        String::utf8("* 그저 할 수 있으니까?"),
-                    })
-                )->set_expressions(Array::make(1, 0, 18, 4, 5))
+                    summontextbox()->character(Character::SANS, sys->dia()->from({
+                        String::utf8("* 헤헤"),
+                        String::utf8("* 계속해볼까?"),
+                    })->set_expressions(Array::make(1, 5)));
+                }else summontextbox()->character(Character::SANS, sys->dia()->from({
+                    String::utf8("* 헤. 따라오고 있었어?"),
+                    String::utf8("* 여기까지 오느라 바빴나 보네"),
+                    String::utf8("* 그 손에 묻은 먼지는 꽤 많아 보이는데... 몬스터를 많이 만났나 봐..?"),
+                    String::utf8("* 어째서 왜? 여전히 이런 길을 선택한 거지? 호기심? 지루함? 아니면..."),
+                    String::utf8("* 그저 할 수 있으니까?"),
+                })->set_expressions(Array::make(1, 0, 18, 4, 5))
                 ->set_speed(Array::make(0.08, 0.08, 0.08, 0.1)));
             }, 0.4f},
             {[this]() {
                 if(global->get_flag("sans_1_death")) return;
-                summontextbox()->generic(sys->dia()->from(
-                    PackedStringArray({
-                        String::utf8("* (연구소는 평소와 다르게 음산하다...)")
-                    })
-                ));
+                summontextbox()->generic(sys->dia()->from({
+                    String::utf8("* (연구소는 평소와 다르게 음산하다...)")
+                }));
             }, isFun},
             {[this]() {
                 if(global->get_flag("sans_1_death")) return;
-                summontextbox()->character(Character::SANS, sys->dia()->from(
-                    PackedStringArray({
-                        String::utf8("* 뭐, 중요하진 않아."),
-                        String::utf8("* 우리 모두 자신의 선택에 책임을 져야 하니까"),
-                        String::utf8("* 네 '재미'가 여기서 끝나길 바랐지만... 어쩔 수 없네"),
-                        String::utf8("* 마지막으로 kid 한가지 조언을 할게 너를 위해서기도 해"),
-                        String::utf8("* 이제 그만두는게 좋을거야")
-                    })
-                )->set_expressions(Array::make(4, 4, 3, 9, 17)));
+                summontextbox()->character(Character::SANS, sys->dia()->from({
+                    String::utf8("* 뭐, 중요하진 않아."),
+                    String::utf8("* 우리 모두 자신의 선택에 책임을 져야 하니까"),
+                    String::utf8("* 네 '재미'가 여기서 끝나길 바랐지만... 어쩔 수 없네"),
+                    String::utf8("* 마지막으로 kid 한가지 조언을 할게 너를 위해서기도 해"),
+                    String::utf8("* 이제 그만두는게 좋을거야")
+                })->set_expressions(Array::make(4, 4, 3, 9, 17)));
             }, isFun},
             {[this]() {
                 sys->load_battle("res://Game/encounters/tres/sans_1.tres",  Vector2(324, 323));
             }, isFun}
         });
     }else {
-        summontextbox()->character(Character::SANS, sys->dia()->from(
-            PackedStringArray({
-                String::utf8("* ..."),
-                String::utf8("* 잠깐 있어봐"),
-            })
-        )->set_expressions(Array::make(2, 18)));
+        summontextbox()->character(Character::SANS, sys->dia()->from({
+            String::utf8("* ..."),
+            String::utf8("* 잠깐 있어봐"),
+        })->set_expressions(Array::make(2, 18)));
         sys->executeTrue([this]() { return !global->get_player_text_box(); },
         [this, sans]() {
             audio_player->play("teleport");
@@ -107,11 +97,9 @@ void LaboratoryNode::character_talk() {
     audio_player->play("beep");
     TextBox* textbox = summontextbox();
     textbox->set_key(false);
-    textbox->character(Character::SANS, sys->dia()->from(
-        PackedStringArray({
-            String::utf8("어..? 잠깐만.. 뭔가 이상한..")
-        })
-    )->set_speed(Array::make(0.2))->set_expressions(Array::make(22)));
+    textbox->character(Character::SANS, sys->dia()->from({
+        String::utf8("어..? 잠깐만.. 뭔가 이상한..")
+    })->set_speed(Array::make(0.2))->set_expressions(Array::make(22)));
     sys->sleep([this, textbox]() { textbox->on_text_click_played(); }, 3.8);
     sys->executeTrue([this]() { return !global->get_player_text_box(); },
     [this]() {
