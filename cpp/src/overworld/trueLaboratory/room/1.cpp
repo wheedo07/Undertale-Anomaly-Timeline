@@ -1,4 +1,4 @@
-#include "trueLaboratory.h"
+#include "../trueLaboratory.h"
 #include "env.h"
 
 void TrueLaboratory::ready_1() {

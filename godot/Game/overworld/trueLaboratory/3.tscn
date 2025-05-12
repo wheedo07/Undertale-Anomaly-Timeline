@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmg0363vy4ihv"]
+[gd_scene load_steps=12 format=3 uid="uid://bmg0363vy4ihv"]
 
 [ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_gkvte"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_o2fkn"]
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="3_6svcl"]
 [ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="4_qrttq"]
 [ext_resource type="PackedScene" uid="uid://c8yexn6trfd1f" path="res://Game/text_trigger.tscn" id="5_w4x1g"]
+[ext_resource type="PackedScene" uid="uid://d26ybge5kvki2" path="res://Overworld/Interactions/item_interaction.tscn" id="6_er2rr"]
+[ext_resource type="Texture2D" uid="uid://cij6l5tcylam0" path="res://Game/assets/sprite/image/real_knife.png" id="7_pcps5"]
+[ext_resource type="Texture2D" uid="uid://cgrb2jcv2epp6" path="res://Game/assets/sprite/image/heart_locket.png" id="8_qwcoe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h18tj"]
 size = Vector2(12, 180)
@@ -15,7 +18,7 @@ size = Vector2(111, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhaiq"]
 size = Vector2(244, 5)
 
-[node name="true_3" type="Overworld" node_paths=PackedStringArray("room_entrances")]
+[node name="true_3" type="TrueLaboratory" node_paths=PackedStringArray("room_entrances")]
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
 music = ExtResource("1_gkvte")
@@ -36,9 +39,11 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = false
 
 [node name="PlayerOverworld" parent="." instance=ExtResource("3_6svcl")]
-position = Vector2(32, 17)
+z_index = 1
+position = Vector2(30, 11)
 
 [node name="trigger" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="TextTrigger" parent="trigger" instance=ExtResource("5_w4x1g")]
 text = PackedStringArray("* 기계가 오작동 하는듯하다..")
@@ -55,6 +60,32 @@ offset_top = 112.0
 offset_right = 54.0
 offset_bottom = 121.0
 pivot_offset = Vector2(19, -10)
+
+[node name="real_knife" parent="trigger" instance=ExtResource("6_er2rr")]
+discover_text = PackedStringArray("* 칼이 있다", "* 가져가자")
+accept_text = PackedStringArray("* [color=red]얻었다[/color]", "* 아무래도 끌려오면서 시공간 떄문에", "* 물건이 떨어진거 같다")
+reject_text = PackedStringArray("* 다음에")
+item_id = 4
+position = Vector2(-31, -20)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="trigger/real_knife"]
+rotation = -0.235619
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_pcps5")
+
+[node name="heart_locket" parent="trigger" instance=ExtResource("6_er2rr")]
+discover_text = PackedStringArray("* 로켓이 있다", "* 가져가자")
+accept_text = PackedStringArray("* [color=red]얻었다![/color]")
+reject_text = PackedStringArray("* 다음에")
+item_id = 5
+position = Vector2(14, -41)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="trigger/heart_locket"]
+rotation = -0.677188
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("8_qwcoe")
 
 [node name="static" type="StaticBody2D" parent="."]
 
@@ -77,3 +108,6 @@ shape = SubResource("RectangleShape2D_lyaf0")
 [node name="5" type="CollisionShape2D" parent="static"]
 position = Vector2(33, -70.5)
 shape = SubResource("RectangleShape2D_nhaiq")
+
+[connection signal="took_item" from="trigger/real_knife" to="." method="took_item"]
+[connection signal="took_item" from="trigger/heart_locket" to="." method="took_item"]

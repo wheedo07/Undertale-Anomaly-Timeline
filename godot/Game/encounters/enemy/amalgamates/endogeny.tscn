@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://d3a4i072fdvkh" path="res://Game/encounters/body/amalgamates/endogeny.tscn" id="1_vad3j"]
 [ext_resource type="Shader" uid="uid://5h6o16kson3k" path="res://Enemies/dust/undertale_dust.tres" id="2_ops74"]
-[ext_resource type="Texture2D" uid="uid://v2uk8ex2yh8f" path="res://Enemies/dust/default_dust.png" id="3_64k08"]
+[ext_resource type="Texture2D" uid="uid://b0u75j551gmks" path="res://Game/assets/sprite/anim/endogeny/spr_endogeny.png" id="3_apel4"]
 [ext_resource type="Texture2D" uid="uid://bw02r33khpc4w" path="res://particles/smoke.png" id="4_wjqbi"]
 [ext_resource type="PackedScene" uid="uid://d3j04wql8n25c" path="res://Battle/Misc/dialogue.tscn" id="5_0phd1"]
 [ext_resource type="AudioStream" uid="uid://b7moo5do6vq5i" path="res://Game/assets/audio/sfx/endogeny.wav" id="6_8t3ia"]
 [ext_resource type="AudioStream" uid="uid://dtoo70e1wko8r" path="res://sfx/snd_vaporized.wav" id="7_rgntw"]
 
 [sub_resource type="ActInfo" id="ActInfo_211rv"]
-description = PackedStringArray("* 엔도제니 - ATK 9 DEF 99\n*이것을 개 몇 마리로 쳐 줘야 할지 모르겠다.")
+description = PackedStringArray("* 엔도제니 - ATK 9 DEF 60\n*이것을 개 몇 마리로 쳐 줘야 할지 모르겠다.")
 
 [sub_resource type="ActInfo" id="ActInfo_jhguq"]
 act = "* 쓰다듬기"
@@ -42,7 +42,7 @@ shader_parameter/linear_accel = 20.0
 shader_parameter/initial_linear_velocity_random = 0.4
 shader_parameter/linear_accel_random = 0.15
 shader_parameter/lifetime_randomness = 0.2
-shader_parameter/sprite = ExtResource("3_64k08")
+shader_parameter/sprite = ExtResource("3_apel4")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_awm6t"]
 particles_animation = true
@@ -87,9 +87,13 @@ anim_offset_curve = SubResource("CurveTexture_lx7ot")
 [node name="endogeny" type="Enemy_Amalgamates"]
 enemy_name = "엔도제니"
 stats = {
-"def": 99,
+"def": 60,
 "hp": 100,
 "max_hp": 100
+}
+rewards = {
+"exp": 8348,
+"gold": 300
 }
 one_by_one_overrdie = true
 flavour_text = PackedStringArray("* 융합체", "* 두려움의 떨고 있다", "* 죽여라")
@@ -104,14 +108,14 @@ dialogue_path = NodePath("Dialogue")
 position = Vector2(0, -68)
 
 [node name="Dust" type="GPUParticles2D" parent="."]
-position = Vector2(-108, -120)
-scale = Vector2(2, 0.85)
+position = Vector2(-114, -136)
+scale = Vector2(1.75, 1.75)
 emitting = false
 amount = 16000
 process_material = SubResource("ShaderMaterial_3gml0")
 one_shot = true
 explosiveness = 1.0
-visibility_rect = Rect2(-6.06821, -19.7972, 119.866, 163.797)
+visibility_rect = Rect2(-6.068, -19.797, 235.866, 156.797)
 local_coords = true
 
 [node name="Spare" type="GPUParticles2D" parent="."]

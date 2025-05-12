@@ -22,6 +22,7 @@ sources += Glob("cpp/engine/*/*/*.cpp")
 sources += Glob("cpp/engine/*/*.cpp")
 sources += Glob("cpp/src/*/*.cpp")
 sources += Glob("cpp/src/*/*/*.cpp")
+sources += Glob("cpp/src/*/*/*/*.cpp")
 
 library = env.SharedLibrary(
     "godot/exe/lib.UndertaleEngine{}{}".format(env["suffix"], env["SHLIBSUFFIX"]).replace(".template", ""),

@@ -11,10 +11,14 @@ namespace godot {
 
         private:
             void flowey_move();
+            void took_item();
 
             // True 1
             void ready_1();
             void move_1();
+
+            // True 3
+            void ready_3();
 
         public:
             TrueLaboratory();
