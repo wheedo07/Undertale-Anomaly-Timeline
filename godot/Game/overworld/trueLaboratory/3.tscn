@@ -63,7 +63,7 @@ pivot_offset = Vector2(19, -10)
 
 [node name="real_knife" parent="trigger" instance=ExtResource("6_er2rr")]
 discover_text = PackedStringArray("* 칼이 있다", "* 가져가자")
-accept_text = PackedStringArray("* [color=red]얻었다[/color]", "* 아무래도 끌려오면서 시공간 떄문에", "* 물건이 떨어진거 같다")
+accept_text = PackedStringArray("* [color=red]얻었다[/color]", "* 아무래도 끌려오면서 시공간 때문에", "* 물건이 떨어진거 같다")
 reject_text = PackedStringArray("* 다음에")
 item_id = 4
 position = Vector2(-31, -20)
