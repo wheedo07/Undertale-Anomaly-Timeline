@@ -49,7 +49,7 @@ position = Vector2(61, 70)
 
 [node name="Save" parent="trigger" instance=ExtResource("5_wor0q")]
 save_text = PackedStringArray("* 의지")
-position = Vector2(-53, 93)
+position = Vector2(-54, 93)
 
 [node name="room_1" type="RoomEntranceNode" parent="trigger"]
 facing_direction = Vector2(0, 1)

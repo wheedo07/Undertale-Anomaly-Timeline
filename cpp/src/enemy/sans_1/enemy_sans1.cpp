@@ -214,6 +214,14 @@ void Enemy_SANS1::_on_get_turn() {
     }
 }
 
+void Enemy_SANS1::on_mercy_used() {
+    box->blitter_print({ String::utf8("* 더 이상 샌즈에게 이건 소용없을거 같다") });
+    sys->executeTrue([this]() { return !global->get_battle_text_box(); },
+    [this]() {
+        emit_signal("on_mercy_end");
+    });
+}
+
 void Enemy_SANS1::on_death_player() {
     global->save_flag("sans_1_death", true);
 }

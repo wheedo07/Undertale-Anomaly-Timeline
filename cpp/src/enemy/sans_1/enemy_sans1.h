@@ -28,6 +28,7 @@ namespace godot {
 
             void ready() override;
             void _on_get_turn() override;
+            void on_mercy_used() override;
             void on_death_player() override;
 
             AttackSans1* create_attack();
