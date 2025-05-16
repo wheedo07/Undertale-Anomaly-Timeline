@@ -64,9 +64,9 @@ heal_amount = 999
 [sub_resource type="Item" id="Item_y5w0o"]
 item_name = "시나몬버니"
 use_message = PackedStringArray("* 당신은 시나몬버니를 사용했다.")
-item_information = PackedStringArray("* 시나몬버니 - 체력 22 회복\n* 토끼 모양의 시나몬롤이다.")
+item_information = PackedStringArray("* 시나몬버니 - 체력 22hp 회복\n* 토끼 모양의 시나몬롤이다.")
 throw_message = PackedStringArray("* 시나몬버니를 버렸다")
-heal_amount = 45
+heal_amount = 22
 
 [sub_resource type="Item" id="Item_3ix70"]
 item_name = "감자칩"

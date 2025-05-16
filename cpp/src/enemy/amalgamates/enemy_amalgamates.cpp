@@ -23,7 +23,7 @@ void Enemy_Amalgamates::_bind_methods() {
 
 void Enemy_Amalgamates::ready() {
     attackScene = ResourceLoader::get_singleton()->load("res://Game/mainAttacks/attack_amalgamates.tscn");
-    sprite_body = Object::cast_to<AnimatedSprite2D>(get_sprites()->get_child(0));
+    sprite_body = Object::cast_to<AnimatedSprite2D>(get_sprites()->get_node_internal("body"));
 
     if(type == Endogeny) {
         shader = sprite_body->get_material();
