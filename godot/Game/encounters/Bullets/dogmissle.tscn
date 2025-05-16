@@ -4,7 +4,7 @@
 
 [node name="dogmissle" type="DefaultBullet"]
 collision_margin = 7.5
-damage = 10
+damage = 20
 area_path = NodePath("BulletArea")
 collision_path = NodePath("BulletArea/CollisionShape2D")
 sprite_path = NodePath("sprite")
