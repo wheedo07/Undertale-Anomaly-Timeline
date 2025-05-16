@@ -39,9 +39,9 @@ void Enemy_Amalgamates::_process(double delta) {
 }
 
 void Enemy_Amalgamates::_on_get_turn() {
-    sys->sleep([this]() {
-        attacks->force_end_attacks();
-    }, 5);
+    soul->set_mode();
+    create_attack();
+    attacks->start_attacks();
 }
 
 AttackAmalgamates* Enemy_Amalgamates::create_attack() {

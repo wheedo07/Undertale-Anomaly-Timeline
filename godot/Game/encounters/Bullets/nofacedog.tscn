@@ -31,27 +31,27 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_uishj")
 }],
-"loop": true,
+"loop": false,
 "name": &"legtuck",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 5.0,
 "texture": ExtResource("1_exyjb")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("2_5yl6q")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("7_lj7os")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("8_spptk")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("9_qml1b")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("10_0mnlc")
 }, {
 "duration": 1.0,
@@ -60,7 +60,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_ieibt")
 }],
-"loop": true,
+"loop": false,
 "name": &"mouth",
 "speed": 5.0
 }, {
@@ -80,14 +80,15 @@ animations = [{
 }]
 
 [node name="Nofacedog" type="Nofacedog"]
+damage = 20
 area_path = NodePath("BulletArea")
 collision_path = NodePath("BulletArea/CollisionShape2D")
 sprite_path = NodePath("sprite")
+scale = Vector2(2, 2)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o0nyp")
-animation = &"legtuck"
-autoplay = "rocket"
+animation = &"mouth"
 
 [node name="BulletArea" type="BulletArea" parent="."]
 

@@ -29,6 +29,8 @@ namespace godot {
             void set_amalgamates(AmalgamatesType value);
             AmalgamatesType get_amalgamates() const;
 
+            void turn_endogeny();
+
         public:
             Enemy_Amalgamates();
             ~Enemy_Amalgamates();
