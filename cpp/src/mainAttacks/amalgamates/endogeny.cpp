@@ -17,7 +17,7 @@ void AttackAmalgamates::attack_endogeny() {
         dog->fire(Vector2(555, 260), Bullet::MOVEMENT_TWEEN, dog_speed);
         
         bool* moving_up = new bool(true);
-        sys->time_loop(Array(), [this, dog, moving_up, dog_speed](double delta, TimeAccumPtr acc) {
+        sys->time_loop(Array::make(0.1), [this, dog, moving_up, dog_speed](double delta, TimeAccumPtr acc) {
             double* time = acc[0];
             
             Vector2 current_pos = dog->get_position();
@@ -29,7 +29,7 @@ void AttackAmalgamates::attack_endogeny() {
                 dog->fire(Vector2(555, 260), Bullet::MOVEMENT_TWEEN, dog_speed);
             }
             
-            if(*time >= UFus::randf_range(0.1, 0.3)) {
+            if(*time >= UFus::randf_range(0.2, 0.3)) {
                 DefaultBullet* missle = create_dogmissle(Masking::ABSOLUTE);
                 Vector2 vec = dog->get_position();
                 missle->set_position(vec);
