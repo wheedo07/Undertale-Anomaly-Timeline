@@ -1,5 +1,5 @@
 #include "attack_amalgamates.h"
-#include "env.h"
+using namespace godot;
 
 AttackAmalgamates::AttackAmalgamates() {}
 
