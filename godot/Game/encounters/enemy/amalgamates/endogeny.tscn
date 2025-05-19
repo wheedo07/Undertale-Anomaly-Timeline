@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://t0c2pfo4phyx"]
+[gd_scene load_steps=29 format=3 uid="uid://t0c2pfo4phyx"]
 
 [ext_resource type="PackedScene" uid="uid://d3a4i072fdvkh" path="res://Game/encounters/body/amalgamates/endogeny.tscn" id="1_vad3j"]
 [ext_resource type="Shader" uid="uid://5h6o16kson3k" path="res://Enemies/dust/undertale_dust.tres" id="2_ops74"]
@@ -13,22 +13,45 @@ description = PackedStringArray("* 엔도제니 - ATK 9 DEF 60\n*이것을 개 �
 
 [sub_resource type="ActInfo" id="ActInfo_jhguq"]
 act = "* 쓰다듬기"
-description = PackedStringArray()
+description = PackedStringArray("* 당신은 머리로 보이는 곳을 쓰담아준다")
 
 [sub_resource type="ActInfo" id="ActInfo_y2cw7"]
 act = "* 부르기"
-description = PackedStringArray()
+description = PackedStringArray("* 당신은 융합체를 불렀다")
 
 [sub_resource type="ActInfo" id="ActInfo_bgop2"]
 act = "* 놀아주기"
-description = PackedStringArray()
+description = PackedStringArray("* 당신은 놀아줘볼려 한다")
 
 [sub_resource type="ActInfo" id="ActInfo_dthii"]
 act = "* 무시하기"
-description = PackedStringArray()
+description = PackedStringArray("* 당신은 눈앞에 존재를 무시해 본다")
 
 [sub_resource type="EnemyState" id="EnemyState_46wp6"]
 acts = Array[ActInfo]([SubResource("ActInfo_211rv"), SubResource("ActInfo_jhguq"), SubResource("ActInfo_y2cw7"), SubResource("ActInfo_bgop2"), SubResource("ActInfo_dthii")])
+
+[sub_resource type="ActInfo" id="ActInfo_tmj8w"]
+description = PackedStringArray("* [color=red]지금[/color]")
+
+[sub_resource type="ActInfo" id="ActInfo_sddo0"]
+act = "* 쓰다듬기"
+description = PackedStringArray("* zz..zzz", "* ! (융함체는 일어났다)", "* 기분이 좋아서 잠깐 잠들었었나보다 보다")
+
+[sub_resource type="ActInfo" id="ActInfo_03qfx"]
+act = "* 부르기"
+description = PackedStringArray("* 피곤해 보인다")
+
+[sub_resource type="ActInfo" id="ActInfo_njuky"]
+act = "* 놀아주기"
+description = PackedStringArray("* 피곤해서 못놀거 같다")
+
+[sub_resource type="ActInfo" id="ActInfo_bqg2f"]
+act = "* 무시하기"
+description = PackedStringArray("* 융함체도 갈길 갈려나 보다")
+
+[sub_resource type="EnemyState" id="EnemyState_blidt"]
+acts = Array[ActInfo]([SubResource("ActInfo_tmj8w"), SubResource("ActInfo_sddo0"), SubResource("ActInfo_03qfx"), SubResource("ActInfo_njuky"), SubResource("ActInfo_bqg2f")])
+sparable = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3gml0"]
 shader = ExtResource("2_ops74")
@@ -95,9 +118,10 @@ rewards = {
 "exp": 8348,
 "gold": 300
 }
+new_states_override = false
 one_by_one_overrdie = true
 flavour_text = PackedStringArray("* 융합체", "* 두려움의 떨고 있다", "* 죽여라")
-enemy_states = [SubResource("EnemyState_46wp6")]
+enemy_states = [SubResource("EnemyState_46wp6"), SubResource("EnemyState_blidt")]
 hurt_sound_path = NodePath("Sounds/Hurt")
 dust_sound_path = NodePath("Sounds/Dust")
 dust_path = NodePath("Dust")

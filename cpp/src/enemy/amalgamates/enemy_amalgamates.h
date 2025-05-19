@@ -21,6 +21,8 @@ namespace godot {
             static void _bind_methods();
 
         private:
+	        int is_mercy;
+	        PackedInt64Array is_act;
             AmalgamatesType type;
             Ref<PackedScene> attackScene;
             Ref<ShaderMaterial> shader;
@@ -29,6 +31,9 @@ namespace godot {
             void set_amalgamates(AmalgamatesType value);
             AmalgamatesType get_amalgamates() const;
 
+            void endogeny_turn();
+            void endogeny_act(int option);
+
         public:
             Enemy_Amalgamates();
             ~Enemy_Amalgamates();
@@ -36,6 +41,7 @@ namespace godot {
             void ready() override;
             void _process(double delta) override;
             void _on_get_turn() override;
+            void on_act_used(int option) override;
 
             AttackAmalgamates* create_attack(int id=1);
     };
