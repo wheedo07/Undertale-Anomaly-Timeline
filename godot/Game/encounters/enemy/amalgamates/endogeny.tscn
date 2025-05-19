@@ -120,7 +120,7 @@ rewards = {
 }
 new_states_override = false
 one_by_one_overrdie = true
-flavour_text = PackedStringArray("* 융합체", "* 두려움의 떨고 있다", "* 죽여라")
+flavour_text = PackedStringArray("* 융합체", "* 두려움에 떨고 있다", "* 죽여라")
 enemy_states = [SubResource("EnemyState_46wp6"), SubResource("EnemyState_blidt")]
 hurt_sound_path = NodePath("Sounds/Hurt")
 dust_sound_path = NodePath("Sounds/Dust")
