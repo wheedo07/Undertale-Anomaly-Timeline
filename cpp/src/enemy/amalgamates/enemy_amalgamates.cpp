@@ -40,13 +40,25 @@ void Enemy_Amalgamates::_process(double delta) {
 
 void Enemy_Amalgamates::_on_get_turn() {
     soul->set_mode();
-    create_attack();
-    attacks->start_attacks();
+
+    if(type == Endogeny) {
+        sprite_body->set_frame(0);
+        bool use_attack1 = (main->turn_number % 2 == 0);
+        bool use_attack2 = !use_attack1;
+        
+        if(UFus::randf() < 0.2) {
+            sprite_body->set_frame(1);
+            use_attack1 = true;
+            use_attack2 = true;
+        }
+        if(use_attack1) create_attack()->start_attack();
+        if(use_attack2) create_attack(2)->start_attack();
+    }
 }
 
-AttackAmalgamates* Enemy_Amalgamates::create_attack() {
+AttackAmalgamates* Enemy_Amalgamates::create_attack(int id) {
     AttackAmalgamates* attack = Object::cast_to<AttackAmalgamates>(attacks->add_attack(attackScene));
-    attack->set_type(type);
+    attack->set_type(type, id);
     return attack;
 }
 

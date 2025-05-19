@@ -5,8 +5,7 @@ AttackAmalgamates::AttackAmalgamates() {}
 
 AttackAmalgamates::~AttackAmalgamates() {}
 
-void AttackAmalgamates::_bind_methods() {
-}
+void AttackAmalgamates::_bind_methods() {}
 
 void AttackAmalgamates::ready() {
     ResourceLoader* loader = ResourceLoader::get_singleton();
@@ -15,12 +14,17 @@ void AttackAmalgamates::ready() {
 }
 
 void AttackAmalgamates::start_attack() {
-    if(type == Endogeny)
-        attack_endogeny();
+    if(type == Endogeny) {
+        if(id == 1) 
+            attack_endogeny_1();
+        else if(id == 2)
+            attack_endogeny_2();
+    }
 }
 
-void AttackAmalgamates::set_type(AmalgamatesType value) {
+void AttackAmalgamates::set_type(AmalgamatesType value, int id) {
     type = value;
+    this->id = id;
 }
 
 DefaultBullet* AttackAmalgamates::create_dogmissle(Masking type) {

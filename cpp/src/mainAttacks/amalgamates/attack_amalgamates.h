@@ -12,17 +12,19 @@ namespace godot {
             static void _bind_methods();
 
         private:
+            int id;
             AmalgamatesType type;
             Ref<PackedScene> scene_dogmissle;
             Ref<PackedScene> scene_nofacedog;
 
-            void attack_endogeny();
+            void attack_endogeny_1();
+            void attack_endogeny_2();
 
         public:
             AttackAmalgamates();
             ~AttackAmalgamates();
 
-            void set_type(AmalgamatesType value);
+            void set_type(AmalgamatesType value, int id);
 
             void ready() override;
             void start_attack() override;

@@ -29,8 +29,6 @@ namespace godot {
             void set_amalgamates(AmalgamatesType value);
             AmalgamatesType get_amalgamates() const;
 
-            void turn_endogeny();
-
         public:
             Enemy_Amalgamates();
             ~Enemy_Amalgamates();
@@ -39,7 +37,7 @@ namespace godot {
             void _process(double delta) override;
             void _on_get_turn() override;
 
-            AttackAmalgamates* create_attack();
+            AttackAmalgamates* create_attack(int id=1);
     };
 }
 VARIANT_ENUM_CAST(godot::AmalgamatesType);

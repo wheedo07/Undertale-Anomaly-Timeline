@@ -1,7 +1,7 @@
 #include "attack_amalgamates.h"
 #include "env.h"
 
-void AttackAmalgamates::attack_endogeny() {
+void AttackAmalgamates::attack_endogeny_1() {
     box->change_size(Vector2(300, 140));
     Nofacedog* dog = create_nofacedog(Masking::ABSOLUTE, 1);
     dog->set_position(Vector2(555, 310));
@@ -39,4 +39,24 @@ void AttackAmalgamates::attack_endogeny() {
         }, 20);
     });
     sys->sleep([this]() { end_attack(); }, 24);
+}
+
+void AttackAmalgamates::attack_endogeny_2() {
+    box->change_size(Vector2(300, 140));
+    Nofacedog* dog = create_nofacedog(Masking::ABSOLUTE, 2);
+    dog->set_position(Vector2(555, 310));
+    dog->play([this, dog]() {
+        float dog_speed = 180.0f;
+        sys->time_loop(Array(), [this, dog, dog_speed](double delta, TimeAccumPtr acc) {
+            double* time = acc[0];
+            
+            if(*time >= UFus::randf_range(0.8, 1.5)) {
+                Vector2 soul_pos = soul->get_position();
+                dog->queue_fire(0, soul_pos, Bullet::MOVEMENT_TWEEN, dog_speed);
+                *time = 0;
+            }else *time += delta;
+        }, 13);
+        sys->sleep([this]() { end_attack(); }, 14);
+        dog->set_mode(3)->play();
+    });
 }
