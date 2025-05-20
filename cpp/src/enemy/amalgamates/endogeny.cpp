@@ -3,6 +3,12 @@
 #include "env.h"
 
 void Enemy_Amalgamates::endogeny_turn() {
+    if(get_current_state() == 1) {
+        sys->sleep([this]() {
+            attacks->force_end_attacks();
+        }, 0.5);
+        return;
+    }
     sprite_body->set_frame(0);
     bool use_attack1 = (main->turn_number % 2 == 0);
     bool use_attack2 = !use_attack1;
@@ -34,7 +40,7 @@ void Enemy_Amalgamates::endogeny_item(int option) {
         if(is_mercy >= 8) {
             set_current_state(1);
             Dictionary state = get_stats();
-            state["def"] = 1;
+            state["def"] = -999;
             set_stats(state);
         }
         emit_signal("on_item_end");
@@ -102,7 +108,7 @@ void Enemy_Amalgamates::endogeny_act(int option) {
         if(is_mercy >= 8) {
             set_current_state(1);
             Dictionary state = get_stats();
-            state["def"] = 1;
+            state["def"] = -999;
             set_stats(state);
         }
         emit_signal("on_act_end");
