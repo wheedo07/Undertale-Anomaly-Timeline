@@ -49,9 +49,13 @@ void Enemy_Amalgamates::_on_get_turn() {
 }
 
 void Enemy_Amalgamates::on_act_used(int option) {
-    if(type == Endogeny) {
+    if(type == Endogeny) 
         endogeny_act(option);
-    }
+}
+
+void Enemy_Amalgamates::on_item_used(int option) {
+    if(type == Endogeny)
+        endogeny_item(option);
 }
 
 AttackAmalgamates* Enemy_Amalgamates::create_attack(int id) {

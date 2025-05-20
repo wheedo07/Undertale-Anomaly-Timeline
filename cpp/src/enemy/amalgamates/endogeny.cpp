@@ -16,9 +16,34 @@ void Enemy_Amalgamates::endogeny_turn() {
     if(use_attack2) create_attack(2)->start_attack();
 }
 
+void Enemy_Amalgamates::endogeny_item(int option) {
+    switch(option) {
+        case 0: { // 막대기
+            if(is_act[0] < 1) {
+                box->blitter_print({ 
+                    String::utf8("* 엔도제니가 당신이 방금 장착한 막대기에 관심이 있는거 같다"), String::utf8("* 당신은 막대기를 던졌다"),
+                    String::utf8("* 엔도제니가 막대기를 쫓아간다"), String::utf8("* 엔도제니가 막대기를 물어왔다"), String::utf8("* 한동안 이렇게 놀줬다")
+                });
+                is_act[0]+=1;
+                is_mercy += 5;
+            }else box->blitter_print({ String::utf8("* ..."),  String::utf8("* 더 이상 막대기에 관심이 없어 보인다") });
+        }
+    }
+    sys->executeTrue([this]() { return !global->get_battle_text_box(); },
+    [this]() {
+        if(is_mercy >= 8) {
+            set_current_state(1);
+            Dictionary state = get_stats();
+            state["def"] = 1;
+            set_stats(state);
+        }
+        emit_signal("on_item_end");
+    });
+}
+
 void Enemy_Amalgamates::endogeny_act(int option) {
     if(is_mercy < 8) {
-        switch (option) {
+        switch(option) {
             case 1: // 쓰다듬기
                 if (is_act[option] < 3) {
                     if (is_mercy >= 4) {
@@ -74,7 +99,7 @@ void Enemy_Amalgamates::endogeny_act(int option) {
     }
     sys->executeTrue([this]() { return !global->get_battle_text_box(); },
     [this]() {
-        if (is_mercy >= 8) {
+        if(is_mercy >= 8) {
             set_current_state(1);
             Dictionary state = get_stats();
             state["def"] = 1;

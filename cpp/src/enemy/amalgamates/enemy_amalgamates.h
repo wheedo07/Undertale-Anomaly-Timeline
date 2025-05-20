@@ -33,6 +33,7 @@ namespace godot {
 
             void endogeny_turn();
             void endogeny_act(int option);
+            void endogeny_item(int option);
 
         public:
             Enemy_Amalgamates();
@@ -42,6 +43,7 @@ namespace godot {
             void _process(double delta) override;
             void _on_get_turn() override;
             void on_act_used(int option) override;
+            void on_item_used(int option) override;
 
             AttackAmalgamates* create_attack(int id=1);
     };
