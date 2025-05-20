@@ -9,9 +9,9 @@ float rand(vec2 co) {
 
 void fragment() {
     vec2 uv = UV;
-    
+
     float noise = rand(uv * 10.0 + vec2(TIME * 0.1, TIME * 0.1));
-    
+
     float scratch = smoothstep(0.9, 1.0, rand(vec2(uv.y * 50.0, TIME * 0.2)));
 
     float combined = max(noise * 0.7, scratch * 0.5);
