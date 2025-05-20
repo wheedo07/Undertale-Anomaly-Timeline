@@ -1,7 +1,9 @@
 #include "text_trigger.h"
 #include "env.h"
 
-TextTrigger::TextTrigger() {}
+TextTrigger::TextTrigger() {
+    current_character = Character::DEFAULT;
+}
 
 TextTrigger::~TextTrigger() {}
 
@@ -11,6 +13,9 @@ void TextTrigger::_bind_methods() {
 
     ClassDB::bind_method(D_METHOD("set_text", "value"), &TextTrigger::set_text);
     ClassDB::bind_method(D_METHOD("get_text"), &TextTrigger::get_text);
+    ClassDB::bind_method(D_METHOD("set_current_character", "value"), &TextTrigger::set_current_character);
+    ClassDB::bind_method(D_METHOD("get_current_character"), &TextTrigger::get_current_character);
+    dind_enum(get_class_static(), "set_current_character", "get_current_character");
     ADD_PROPERTY(PropertyInfo(Variant::PACKED_STRING_ARRAY, "text", PROPERTY_HINT_MULTILINE_TEXT), "set_text", "get_text");
 }
 
@@ -21,14 +26,10 @@ void TextTrigger::_on_interact_text() {
 
     Ref<Dialogues> dia = sys->dia(); 
     dia->from(text);
-    if(is_wingdings(text[0])) {
-        textbox->character(Character::GASTER, dia);
+    if(current_character != Character::DEFAULT) {
+        textbox->character(true, current_character, dia);
     }else textbox->generic(dia);
     textbox->connect("dialogue_finished", Callable(this, "emit_signal").bind("dialogue_finished"));
-}
-
-bool TextTrigger::is_wingdings(String t) {
-    return t[0] == 32;
 }
 
 void TextTrigger::set_text(PackedStringArray value) {
@@ -37,4 +38,12 @@ void TextTrigger::set_text(PackedStringArray value) {
 
 PackedStringArray TextTrigger::get_text() {
     return text;
+}
+
+void TextTrigger::set_current_character(Character value) {
+    current_character = value;
+}
+
+Character TextTrigger::get_current_character() const {
+    return current_character;
 }

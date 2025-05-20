@@ -156,7 +156,6 @@ visibility_rect = Rect2(-141.412, -148.057, 285.059, 248.057)
 local_coords = true
 
 [node name="Dialogue" parent="." instance=ExtResource("5_0phd1")]
-custom_character = 1
 offset_left = 107.0
 offset_top = -140.0
 offset_right = 285.0

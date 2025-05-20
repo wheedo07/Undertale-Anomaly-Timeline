@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl0jujp7f2trg"]
+[gd_scene load_steps=12 format=3 uid="uid://dl0jujp7f2trg"]
 
 [ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_1hobh"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_5ijtm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="4_uqlbi"]
 [ext_resource type="Encounter" uid="uid://c2tk8eqv38pme" path="res://Game/encounters/tres/endogeny.tres" id="5_c005o"]
 [ext_resource type="PackedScene" uid="uid://gyhc83v53iax" path="res://Overworld/Interactions/save.tscn" id="5_wor0q"]
+[ext_resource type="PackedScene" uid="uid://c8yexn6trfd1f" path="res://Game/text_trigger.tscn" id="7_pljov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5otqw"]
 size = Vector2(240, 144)
@@ -19,7 +20,7 @@ size = Vector2(22, 292)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h41bh"]
 size = Vector2(29, 20)
 
-[node name="true_4" type="Overworld" node_paths=PackedStringArray("room_entrances")]
+[node name="true_4" type="TrueLaboratory" node_paths=PackedStringArray("room_entrances")]
 world_name = "진실의 연구소"
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
@@ -50,6 +51,22 @@ position = Vector2(61, 70)
 [node name="Save" parent="trigger" instance=ExtResource("5_wor0q")]
 save_text = PackedStringArray("* 의지")
 position = Vector2(-54, 93)
+
+[node name="potato" parent="trigger" instance=ExtResource("7_pljov")]
+text = PackedStringArray("* 자판기다")
+position = Vector2(-29, 11)
+scale = Vector2(1.3, 1)
+
+[node name="TextTrigger" parent="trigger" instance=ExtResource("7_pljov")]
+character = 5
+text = PackedStringArray("* ( 분류: 개인 메모 )", "오늘... 아니, 며칠 전부터 뭔가가 이상했어.", "코어 근처에서... 음... 정확히 뭐라고 설명해야 하지...", "데이터 로그에도 없던 신호가 잡혔고, 처음엔 그저 통신 오류인 줄 알았어", "그리고... 봤어", "분명, 누군가 였어", "그, 그 눈... 아니, 구멍? 무언가 공허한 게... 나를 보고 있었어", "아무튼, 내가 이상한 걸까?")
+position = Vector2(127, 63)
+
+[node name="TextTrigger2" parent="trigger" instance=ExtResource("7_pljov")]
+character = 9
+text = PackedStringArray("* ( Log : ABS-001 )", "공허는 나를 환영했다.", "나는 이제 시간선의 한계를 넘어선 존재가 되었다.", "의지는 육체를 초월한다.", "더는 영혼도, 형체도 필요하지 않다", "나는 지켜보았다.", "그리고… 마침내 실험할 시간이 왔다. ")
+position = Vector2(104, 4)
+scale = Vector2(1.5, 0.8)
 
 [node name="room_1" type="RoomEntranceNode" parent="trigger"]
 facing_direction = Vector2(0, 1)
@@ -86,3 +103,5 @@ shape = SubResource("RectangleShape2D_d0ih2")
 [node name="6" type="CollisionShape2D" parent="static"]
 position = Vector2(-28.5, 11)
 shape = SubResource("RectangleShape2D_h41bh")
+
+[connection signal="dialogue_finished" from="trigger/potato" to="." method="potato_trigger"]

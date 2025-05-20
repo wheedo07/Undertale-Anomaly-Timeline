@@ -175,7 +175,7 @@ visibility_rect = Rect2(-141.412, -148.057, 285.059, 248.057)
 local_coords = true
 
 [node name="Dialogue" parent="." instance=ExtResource("17_akvrj")]
-custom_character = 1
+character = 1
 offset_left = 59.0
 offset_top = -141.0
 offset_right = 237.0

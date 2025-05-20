@@ -143,7 +143,7 @@ void CoreNode::event2() {
 }
 
 void CoreNode::text_trigger1() {
-    summontextbox()->character(Character::GASTER, sys->dia()->from({
+    summontextbox()->character(true, Character::GASTER_TEXT, sys->dia()->from({
         String::utf8("WHEN TIME AND SPACE BECOME ONE..."),
         String::utf8("ALL SUFFERING WILL CEASE TO EXIST...")
     }));

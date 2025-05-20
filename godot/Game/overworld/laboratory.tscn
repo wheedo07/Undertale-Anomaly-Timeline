@@ -82,22 +82,26 @@ position = Vector2(192, 245)
 position = Vector2(23, 23)
 
 [node name="1" parent="trigger/experiment_data" instance=ExtResource("5_c6odf")]
-text = PackedStringArray(" THE CORE... MY CREATION... IT\'S PULLING ME IN. I CAN\'T... I CAN\'T ESCAPE.")
+character = 10
+text = PackedStringArray("THE CORE... MY CREATION... IT\'S PULLING ME IN. I CAN\'T... I CAN\'T ESCAPE.")
 position = Vector2(-272, 203)
 scale = Vector2(0.5, 0.417)
 
 [node name="2" parent="trigger/experiment_data" instance=ExtResource("5_c6odf")]
+character = 10
 text = PackedStringArray("* ( 너무 복잡한 수식 처럼 보인다 )", "* ( 내가 읽을수 없을거 같다 )")
 position = Vector2(-250, 211)
 scale = Vector2(0.5, 0.417)
 
 [node name="3" parent="trigger/experiment_data" instance=ExtResource("5_c6odf")]
-text = PackedStringArray(" DARKNESS. ENDLESS DARKNESS.", "BUT I CAN SEE... EVERYTHING. ALL POSSIBILITIES AT ONCE.")
+character = 10
+text = PackedStringArray("DARKNESS. ENDLESS DARKNESS.", "BUT I CAN SEE... EVERYTHING. ALL POSSIBILITIES AT ONCE.")
 position = Vector2(-304, 212)
 scale = Vector2(0.5, 0.417)
 
 [node name="4" parent="trigger/experiment_data" instance=ExtResource("5_c6odf")]
-text = PackedStringArray(" I SEE OTHER WORLDS.", "NOT JUST OUR UNDERGROUND.", "WORLDS WHERE MONSTERS WON THE WAR. WORLDS WHERE WE NEVER EXISTED.")
+character = 10
+text = PackedStringArray("I SEE OTHER WORLDS.", "NOT JUST OUR UNDERGROUND.", "WORLDS WHERE MONSTERS WON THE WAR. WORLDS WHERE WE NEVER EXISTED.")
 position = Vector2(-341, 212)
 scale = Vector2(0.5, 0.417)
 

@@ -58,7 +58,7 @@ void TrueLaboratory::move_1() {
         flowey->connect("animation_finished", Callable(flowey, "set_frame").bind(0), CONNECT_ONE_SHOT);
         flowey->connect("animation_finished", Callable(player, "force_direction").bind(Vector2(0, -1)), CONNECT_ONE_SHOT);
         sys->sleep([this, flowey]() {
-            summontextbox()->character(Character::FLOWEY, sys->dia()->from({
+            summontextbox()->character(false, Character::FLOWEY, sys->dia()->from({
                 String::utf8("* 오, 드디어 일어났네"),
                 String::utf8("* 기절한 얼굴로 널 바라보는 것도 지루했거든"),
                 String::utf8("* 뭐… 그게 중요한 건 아니지"),
@@ -79,13 +79,13 @@ void TrueLaboratory::move_1() {
             auto isFun = [this]() { return !global->get_player_text_box(); };
             sys->sequence({
                 {[this]() {
-                    summontextbox()->character(Character::FLOWEY, sys->dia()->from({
+                    summontextbox()->character(false, Character::FLOWEY, sys->dia()->from({
                         String::utf8("* 사실 뭘 선택하든간에"),
                         String::utf8("* 그냥 동맹할 생각이였어"),
                     }));
                 }, isFun},
                 {[this]() {
-                    summontextbox()->character(Character::FLOWEY_EVIL, sys->dia()->from({
+                    summontextbox()->character(false, Character::FLOWEY_EVIL, sys->dia()->from({
                         String::utf8("* 잊었어? 여기는 죽거나 죽이거나 이잖아!")
                     }));
                 }, isFun},

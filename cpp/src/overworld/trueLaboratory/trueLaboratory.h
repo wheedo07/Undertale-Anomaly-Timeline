@@ -11,7 +11,6 @@ namespace godot {
 
         private:
             void flowey_move();
-            void took_item();
 
             // True 1
             void ready_1();
@@ -19,6 +18,11 @@ namespace godot {
 
             // True 3
             void ready_3();
+            void took_item();
+
+            // True 4
+            void potato_trigger();
+            void potato_select(int index);
 
         public:
             TrueLaboratory();
