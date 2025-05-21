@@ -7,7 +7,7 @@ void TrueLaboratory::tigger_abs2() {
     flowey->connect("animation_finished", Callable(this, "flowey_move"), CONNECT_ONE_SHOT);
     flowey->set_position(Vector2(player->get_position().x-50, 65));
     flowey->show();
-    flowey->play_anim("dig", 1, true);
+    flowey->play_anim("dig_break");
 }
 
 void TrueLaboratory::move_2() {
@@ -25,9 +25,11 @@ void TrueLaboratory::move_2() {
     sys->executeTrue([this]() { return skip_count >= 3; },
     [this, textbox]() {
         textbox->queue_free();
-        summontextbox()->character(false, Character::FLOWEY_EVIL, sys->dia()->from({
-            String::utf8("* 그리고 내 말 스킵좀 그만해라"),
-            String::utf8("* 도와주려고 했더니만"),
+        TextBox* textbox2 = summontextbox();
+        textbox2->set_key(false);
+        textbox2->character(false, Character::FLOWEY, sys->dia()->from({
+            String::utf8("* ...방금 스킵했지?"),
+            String::utf8("* 하하, 괜찮아~ 다음엔 안 놓치게 될 거야. 아마도"),
         }));
     }); 
     sys->executeTrue([this]() { return !global->get_player_text_box(); },

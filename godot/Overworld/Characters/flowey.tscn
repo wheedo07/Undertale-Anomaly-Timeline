@@ -44,6 +44,20 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.5,
+"texture": ExtResource("3_wvock")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_6mhir")
+}, {
+"duration": 1.5,
+"texture": ExtResource("1_abrw3")
+}],
+"loop": false,
+"name": &"dig_break",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_hat3d")
 }],
@@ -97,7 +111,7 @@ debug_color = Color(1, 1, 1, 0.419608)
 position = Vector2(0, -6)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_c51cd")
-animation = &"move"
+animation = &"act"
 offset = Vector2(0, -5)
 
 [node name="Alert" type="AnimatedSprite2D" parent="."]
