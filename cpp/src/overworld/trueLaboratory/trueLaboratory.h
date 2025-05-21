@@ -10,11 +10,17 @@ namespace godot {
             static void _bind_methods();
 
         private:
+            int skip_count;
             void flowey_move();
+            void _on_typing_skip(int count);
 
             // True 1
             void ready_1();
             void move_1();
+
+            // True 2
+            void tigger_abs2();
+            void move_2();
 
             // True 3
             void ready_3();
