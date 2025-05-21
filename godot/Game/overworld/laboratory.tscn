@@ -88,7 +88,6 @@ position = Vector2(-272, 203)
 scale = Vector2(0.5, 0.417)
 
 [node name="2" parent="trigger/experiment_data" instance=ExtResource("5_c6odf")]
-character = 10
 text = PackedStringArray("* ( 너무 복잡한 수식 처럼 보인다 )", "* ( 내가 읽을수 없을거 같다 )")
 position = Vector2(-250, 211)
 scale = Vector2(0.5, 0.417)
