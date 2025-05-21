@@ -3,6 +3,7 @@
 
 void TrueLaboratory::tigger_abs2() {
     if(global->get_flag("tigger_abs2")) return;
+    global->set_player_in_menu(true);
     EnemyOverworld* flowey = Object::cast_to<EnemyOverworld>(get_node_internal("Flowey"));
     flowey->connect("animation_finished", Callable(this, "flowey_move"), CONNECT_ONE_SHOT);
     flowey->set_position(Vector2(player->get_position().x-50, 65));
