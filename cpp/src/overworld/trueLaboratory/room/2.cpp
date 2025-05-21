@@ -27,6 +27,7 @@ void TrueLaboratory::move_2() {
         textbox->queue_free();
         TextBox* textbox2 = summontextbox();
         textbox2->set_key(false);
+        sys->sleep([this, textbox2]() { textbox2->set_key(true); }, 1.5);
         textbox2->character(false, Character::FLOWEY, sys->dia()->from({
             String::utf8("* ...방금 스킵했지?"),
             String::utf8("* 하하, 괜찮아~ 다음엔 안 놓치게 될 거야. 아마도"),
