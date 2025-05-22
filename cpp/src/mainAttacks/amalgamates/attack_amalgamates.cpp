@@ -19,7 +19,8 @@ void AttackAmalgamates::start_attack() {
             attack_endogeny_1();
         else if(id == 2)
             attack_endogeny_2();
-    }
+    }else if(type == Memoryhead)
+        attack_memoryhead();
 }
 
 void AttackAmalgamates::set_type(AmalgamatesType value, int id) {

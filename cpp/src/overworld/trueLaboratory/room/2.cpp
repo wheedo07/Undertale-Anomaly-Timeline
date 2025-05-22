@@ -15,6 +15,7 @@ void TrueLaboratory::move_2() {
     EnemyOverworld* flowey = Object::cast_to<EnemyOverworld>(get_node_internal("Flowey"));
     flowey->set_frame(0);
     TextBox* textbox = summontextbox();
+    skip_count = 0;
     textbox->connect("typing_skip", Callable(this, "_on_typing_skip"));
     textbox->character(false, Character::FLOWEY, sys->dia()->from({
         String::utf8("* 하하하! 봤어? 넌 그냥, 부품이래"),

@@ -46,6 +46,8 @@ void Enemy_Amalgamates::_on_get_turn() {
 
     if(type == Endogeny) 
         endogeny_turn();
+    else if(type == Memoryhead)
+        create_attack()->start_attack();
 }
 
 void Enemy_Amalgamates::on_act_used(int option) {

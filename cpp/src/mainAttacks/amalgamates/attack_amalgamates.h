@@ -17,8 +17,12 @@ namespace godot {
             Ref<PackedScene> scene_dogmissle;
             Ref<PackedScene> scene_nofacedog;
 
+            // Endogeny
             void attack_endogeny_1();
             void attack_endogeny_2();
+
+            // Memoryhead
+            void attack_memoryhead();
 
         public:
             AttackAmalgamates();

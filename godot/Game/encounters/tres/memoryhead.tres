@@ -1,0 +1,10 @@
+[gd_resource type="Encounter" load_steps=3 format=3 uid="uid://blctlshwcifbv"]
+
+[ext_resource type="PackedScene" uid="uid://c4fhd8x84xpbv" path="res://Game/encounters/enemy/amalgamates/memoryhead.tscn" id="1_vhfy1"]
+[ext_resource type="AudioStream" uid="uid://dchqf2l2n5x5x" path="res://Game/assets/audio/battle/trueLaboratory.mp3" id="2_6p1gq"]
+
+[resource]
+encounter_name = &"Memoryhead"
+enemies = Array[PackedScene]([ExtResource("1_vhfy1"), ExtResource("1_vhfy1"), ExtResource("1_vhfy1")])
+music = ExtResource("2_6p1gq")
+flee_chance = 0.8

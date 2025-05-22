@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://0w6206ajnb2r"]
 
-[ext_resource type="AudioStream" uid="uid://n4nbydhkmdog" path="res://Musics/default2.wav" id="1_wjc33"]
+[ext_resource type="AudioStream" uid="uid://js5r63aryh8d" path="res://Game/assets/audio/background/lab.ogg" id="1_lmi2o"]
 [ext_resource type="Texture2D" uid="uid://cgl2ly10cs5oe" path="res://Game/assets/img/laboratory.png" id="2_4xebv"]
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="3_lhw5i"]
 [ext_resource type="AudioStream" uid="uid://brycomsutim4m" path="res://sfx/Deltarune Intro noise.wav" id="4_mif2h"]
@@ -52,7 +52,7 @@ size = Vector2(46, 20)
 [node name="Laboratory" type="LaboratoryNode"]
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("PlayerOverworld/Camera")
-music = ExtResource("1_wjc33")
+music = ExtResource("1_lmi2o")
 y_sort_enabled = true
 
 [node name="image" type="Sprite2D" parent="."]
