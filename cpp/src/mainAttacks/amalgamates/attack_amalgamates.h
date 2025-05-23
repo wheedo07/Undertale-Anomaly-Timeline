@@ -2,8 +2,9 @@
 #define AttackAmalgamates_H
 
 #include "engine/Battle/Attacks/attacks.h"
-#include "src/bullets/nofacedog/nofacedog.h"
 #include "src/enemy/amalgamates/enemy_amalgamates.h"
+#include "src/bullets/nofacedog/nofacedog.h"
+#include "src/bullets/freakbullet/freakbullet.h"
 namespace godot {
     class AttackAmalgamates : public AttackBase {
         GDCLASS(AttackAmalgamates, AttackBase);
@@ -16,6 +17,7 @@ namespace godot {
             AmalgamatesType type;
             Ref<PackedScene> scene_dogmissle;
             Ref<PackedScene> scene_nofacedog;
+            Ref<PackedScene> scene_freakbullet;
 
             // Endogeny
             void attack_endogeny_1();
@@ -35,6 +37,7 @@ namespace godot {
 
             DefaultBullet* create_dogmissle(Masking type);
             Nofacedog* create_nofacedog(Masking type, int mode);
+            Freakbullet* create_freakbullet(Masking type);
     };
 }
 

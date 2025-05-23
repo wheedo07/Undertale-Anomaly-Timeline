@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4fhd8x84xpbv"]
+[gd_scene load_steps=30 format=3 uid="uid://c4fhd8x84xpbv"]
 
 [ext_resource type="PackedScene" uid="uid://fre21pgdmrx7" path="res://Game/encounters/body/amalgamates/memoryhead.tscn" id="1_xb1ur"]
 [ext_resource type="Texture2D" uid="uid://bw02r33khpc4w" path="res://particles/smoke.png" id="2_yowd0"]
@@ -8,16 +8,37 @@
 [ext_resource type="AudioStream" uid="uid://dtoo70e1wko8r" path="res://sfx/snd_vaporized.wav" id="6_i8yx7"]
 [ext_resource type="AudioStream" uid="uid://whw3x6xn245u" path="res://Game/assets/audio/sfx/memoryhead.ogg" id="6_tmg1t"]
 
+[sub_resource type="Dialogue" id="Dialogue_aibdn"]
+dialog_text = "뭐지 뭔가 이상해"
+
+[sub_resource type="Dialogues" id="Dialogues_h11jv"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_aibdn")])
+
+[sub_resource type="Dialogue" id="Dialogue_0fp2g"]
+dialog_text = "그냥 재미 있게 놀자고"
+
+[sub_resource type="Dialogues" id="Dialogues_n4r8u"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_0fp2g")])
+
+[sub_resource type="Dialogue" id="Dialogue_eb1ix"]
+dialog_text = "아 그래"
+
+[sub_resource type="Dialogue" id="Dialogue_xjfnw"]
+dialog_text = "불안해 나 먼저 갈래"
+
+[sub_resource type="Dialogues" id="Dialogues_5pw87"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_eb1ix"), SubResource("Dialogue_xjfnw")])
+
 [sub_resource type="ActInfo" id="ActInfo_jbhpf"]
 description = PackedStringArray("* 메모리헤드 - ATK 9 DEF 60\n* 데이터 사용 불가.")
 
 [sub_resource type="ActInfo" id="ActInfo_d032y"]
 act = "* 합류하기"
-description = PackedStringArray("* 넌.. 정말", "* 나쁜 아이야")
+description = PackedStringArray("* 그들과 합류하기로 했다")
 
 [sub_resource type="ActInfo" id="ActInfo_u341u"]
 act = "* 거절하기"
-description = PackedStringArray("* 사람을 다 일어나게 하는 숫자는?", "* 다섯")
+description = PackedStringArray("* 그들을 거절했다")
 
 [sub_resource type="EnemyState" id="EnemyState_hibmg"]
 acts = Array[ActInfo]([SubResource("ActInfo_jbhpf"), SubResource("ActInfo_d032y"), SubResource("ActInfo_u341u")])
@@ -97,7 +118,8 @@ rewards = {
 }
 new_states_override = false
 one_by_one_overrdie = true
-flavour_text = PackedStringArray("* 가 다가왔다", "* 죽이자")
+dialogues = [SubResource("Dialogues_h11jv"), SubResource("Dialogues_n4r8u"), SubResource("Dialogues_5pw87")]
+flavour_text = PackedStringArray("* 가 나타났다", "* 죽이자")
 enemy_states = [SubResource("EnemyState_hibmg"), SubResource("EnemyState_7ha5m")]
 hurt_sound_path = NodePath("sound/Hurt")
 dust_sound_path = NodePath("sound/Dust")

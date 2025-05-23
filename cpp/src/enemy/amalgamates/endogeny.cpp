@@ -9,7 +9,6 @@ void Enemy_Amalgamates::endogeny_turn() {
         }, 0.5);
         return;
     }
-    sprite_body->set_frame(0);
     bool use_attack1 = (main->turn_number % 2 == 0);
     bool use_attack2 = !use_attack1;
     

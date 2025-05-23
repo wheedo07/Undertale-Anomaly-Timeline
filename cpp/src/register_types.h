@@ -22,6 +22,7 @@
 
 // Bullets Node
 #include "bullets/nofacedog/nofacedog.h"
+#include "bullets/freakbullet/freakbullet.h"
 using namespace godot;
 
 void register_init();

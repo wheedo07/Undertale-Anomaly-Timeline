@@ -25,4 +25,5 @@ void register_init() {
 
     // Bullets Node
     GDREGISTER_CLASS(Nofacedog);
+    GDREGISTER_CLASS(Freakbullet);
 }

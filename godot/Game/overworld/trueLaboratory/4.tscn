@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dl0jujp7f2trg"]
+[gd_scene load_steps=14 format=3 uid="uid://dl0jujp7f2trg"]
 
 [ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_1hobh"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_5ijtm"]
@@ -20,6 +20,9 @@ size = Vector2(22, 292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h41bh"]
 size = Vector2(29, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dc6o"]
+size = Vector2(14, 34)
 
 [node name="true_4" type="TrueLaboratory" node_paths=PackedStringArray("room_entrances")]
 world_name = "진실의 연구소"
@@ -98,11 +101,19 @@ position = Vector2(-134, 12)
 shape = SubResource("RectangleShape2D_d0ih2")
 
 [node name="5" type="CollisionShape2D" parent="static"]
-position = Vector2(210, 12)
+position = Vector2(208, 12)
 shape = SubResource("RectangleShape2D_d0ih2")
 
 [node name="6" type="CollisionShape2D" parent="static"]
 position = Vector2(-28.5, 11)
 shape = SubResource("RectangleShape2D_h41bh")
+
+[node name="7" type="CollisionShape2D" parent="static"]
+position = Vector2(-115, 90)
+shape = SubResource("RectangleShape2D_8dc6o")
+
+[node name="8" type="CollisionShape2D" parent="static"]
+position = Vector2(185, 90)
+shape = SubResource("RectangleShape2D_8dc6o")
 
 [connection signal="dialogue_finished" from="trigger/potato" to="." method="potato_trigger"]

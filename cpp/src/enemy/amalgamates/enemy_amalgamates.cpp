@@ -47,7 +47,15 @@ void Enemy_Amalgamates::_on_get_turn() {
     if(type == Endogeny) 
         endogeny_turn();
     else if(type == Memoryhead)
-        create_attack()->start_attack();
+        memoryhead_turn();
+}
+
+void Enemy_Amalgamates::_on_end_turn() {
+    if(type == Memoryhead) {
+        Ref<Tween> tween = create_tween()->set_trans(Tween::TRANS_SINE)->set_ease(Tween::EASE_OUT);
+        tween->tween_property(sprite_body, "modulate:a", 1, 0.7);
+    }else if(type == Endogeny) 
+        sprite_body->set_frame(0);
 }
 
 void Enemy_Amalgamates::on_act_used(int option) {

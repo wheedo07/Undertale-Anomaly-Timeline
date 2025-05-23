@@ -1,0 +1,96 @@
+[gd_scene load_steps=20 format=3 uid="uid://bvc7wq2v03xed"]
+
+[ext_resource type="Texture2D" uid="uid://b3mgxfmwcrech" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_0.png" id="1_4qqm8"]
+[ext_resource type="Texture2D" uid="uid://bbh336jms8eo2" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_1.png" id="2_kngjy"]
+[ext_resource type="Texture2D" uid="uid://buumtll8e3jhl" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_2.png" id="3_dyxld"]
+[ext_resource type="Texture2D" uid="uid://vgtm5orlsskg" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_3.png" id="4_a3td5"]
+[ext_resource type="Texture2D" uid="uid://0nri6dot8ljd" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_4.png" id="5_mtchp"]
+[ext_resource type="Texture2D" uid="uid://bu8jydmsku0yt" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_5.png" id="6_tnffv"]
+[ext_resource type="Texture2D" uid="uid://db08u6gg6x3bt" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_6.png" id="7_kn1xq"]
+[ext_resource type="Texture2D" uid="uid://ile3m4wf2p4a" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_7.png" id="8_ayg12"]
+[ext_resource type="Texture2D" uid="uid://type5v0suhs7" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_8.png" id="9_v3mk1"]
+[ext_resource type="Texture2D" uid="uid://dpnnepfc7lli4" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_9.png" id="10_80x81"]
+[ext_resource type="Texture2D" uid="uid://bwg70pce656ys" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_10.png" id="11_7bulr"]
+[ext_resource type="Texture2D" uid="uid://crmiw708jn3fy" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_11.png" id="12_30wv7"]
+[ext_resource type="Texture2D" uid="uid://bek24aqori1qr" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_12.png" id="13_4o4mq"]
+[ext_resource type="Texture2D" uid="uid://c73nm0nlkewtw" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_13.png" id="14_ecge8"]
+[ext_resource type="Texture2D" uid="uid://d00u2lxunbjoc" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_14.png" id="15_0psvt"]
+[ext_resource type="Texture2D" uid="uid://8s6uf8yvoibg" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_15.png" id="16_rdwrq"]
+[ext_resource type="Texture2D" uid="uid://btifph1rqkyl0" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_16.png" id="17_0r7mg"]
+[ext_resource type="Texture2D" uid="uid://ceh0y6kkq362g" path="res://Game/assets/sprite/anim/freakbullet/spr_freakbullet_old_17.png" id="18_i3dh0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ss6jw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4qqm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kngjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dyxld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a3td5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mtchp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tnffv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kn1xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ayg12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v3mk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_80x81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7bulr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_30wv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4o4mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ecge8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0psvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rdwrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0r7mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_i3dh0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Freakbullet" type="Freakbullet"]
+collision_margin = 6.0
+damage = 20
+area_path = NodePath("BulletArea")
+collision_path = NodePath("BulletArea/CollisionShape2D")
+sprite_path = NodePath("sprtie")
+
+[node name="sprtie" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ss6jw")
+
+[node name="BulletArea" type="BulletArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]

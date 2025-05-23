@@ -37,6 +37,7 @@ namespace godot {
             void endogeny_item(int option);
 
             // Memoryhead
+            void memoryhead_turn();
             void memoryhead_act(int option);
 
         public:
@@ -48,6 +49,7 @@ namespace godot {
             void _on_get_turn() override;
             void on_act_used(int option) override;
             void on_item_used(int option) override;
+            void _on_end_turn() override;
 
             AttackAmalgamates* create_attack(int id=1);
     };
