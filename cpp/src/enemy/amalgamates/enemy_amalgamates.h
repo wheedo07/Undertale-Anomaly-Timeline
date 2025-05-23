@@ -31,9 +31,13 @@ namespace godot {
             void set_amalgamates(AmalgamatesType value);
             AmalgamatesType get_amalgamates() const;
 
+            // Endogeny
             void endogeny_turn();
             void endogeny_act(int option);
             void endogeny_item(int option);
+
+            // Memoryhead
+            void memoryhead_act(int option);
 
         public:
             Enemy_Amalgamates();
