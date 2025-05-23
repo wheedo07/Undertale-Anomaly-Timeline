@@ -42,7 +42,7 @@ void Enemy_Amalgamates::_process(double delta) {
 }
 
 void Enemy_Amalgamates::_on_get_turn() {
-    soul->set_mode();
+    if(soul->get_mode() != SoulBattle::RED) soul->set_mode();
 
     if(type == Endogeny) 
         endogeny_turn();
