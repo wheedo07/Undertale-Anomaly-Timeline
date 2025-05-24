@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bia0pfi735227"]
+
+[ext_resource type="Texture2D" uid="uid://dv513cy8rm33g" path="res://Game/assets/sprite/anim/clawbullet/spr_clawbullet_0.png" id="1_v4nrm"]
+[ext_resource type="Texture2D" uid="uid://b0dekmnm2gcuv" path="res://Game/assets/sprite/anim/clawbullet/spr_clawbullet_1.png" id="2_0pkxi"]
+[ext_resource type="Texture2D" uid="uid://b1u54ypt8ixa" path="res://Game/assets/sprite/anim/clawbullet/spr_clawbullet_2.png" id="3_bhe4m"]
+[ext_resource type="Texture2D" uid="uid://f8131qtcf0ih" path="res://Game/assets/sprite/anim/clawbullet/spr_clawbullet_3.png" id="4_pyvcm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjdwd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v4nrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0pkxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bhe4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pyvcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="clawbullet" type="DefaultBullet"]
+damage = 20
+delete_upon_hit = true
+area_path = NodePath("BulletArea")
+collision_path = NodePath("BulletArea/CollisionShape2D")
+sprite_path = NodePath("sprite")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tjdwd")
+autoplay = "default"
+frame_progress = 0.0261681
+
+[node name="BulletArea" type="BulletArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-5.96046e-08, 1)
+scale = Vector2(1.1, 1.1)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_exit_screen"]

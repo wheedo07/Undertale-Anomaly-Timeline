@@ -1,0 +1,169 @@
+[gd_scene load_steps=27 format=3 uid="uid://dpfep6eb0a12c"]
+
+[ext_resource type="PackedScene" uid="uid://bxjspbodtq2dt" path="res://Game/encounters/body/amalgamates/snowdrake.tscn" id="1_kvt27"]
+[ext_resource type="Texture2D" uid="uid://bw02r33khpc4w" path="res://particles/smoke.png" id="2_q5kk6"]
+[ext_resource type="Shader" uid="uid://5h6o16kson3k" path="res://Enemies/dust/undertale_dust.tres" id="3_dn3tj"]
+[ext_resource type="Texture2D" uid="uid://bqwq5mhihwb11" path="res://Game/assets/sprite/anim/snowdrake/spr_snowdrakesmom_0.png" id="4_q03dv"]
+[ext_resource type="PackedScene" uid="uid://d3j04wql8n25c" path="res://Battle/Misc/dialogue.tscn" id="5_6df3g"]
+[ext_resource type="AudioStream" uid="uid://dtoo70e1wko8r" path="res://sfx/snd_vaporized.wav" id="6_dfjgr"]
+[ext_resource type="AudioStream" uid="uid://xf3ptirgh7e" path="res://Game/assets/audio/sfx/snowdrake.wav" id="7_sb8sn"]
+
+[sub_resource type="Dialogue" id="Dialogue_dpw6i"]
+dialog_text = "스....
+노....
+위...."
+
+[sub_resource type="Dialogues" id="Dialogues_tfnyq"]
+dialogues = Array[Dialogue]([SubResource("Dialogue_dpw6i")])
+
+[sub_resource type="ActInfo" id="ActInfo_06043"]
+description = PackedStringArray("* 융합체 - ATK -12 DEF -5\n* 자아를 잃어가고 있는 것 같다")
+
+[sub_resource type="ActInfo" id="ActInfo_nyw1q"]
+act = "* 웃기"
+description = PackedStringArray("* 넌.. 정말", "* 나쁜 아이야")
+
+[sub_resource type="ActInfo" id="ActInfo_ka72n"]
+act = "* 야유하기"
+description = PackedStringArray("* 당신은 ... \"너 끔찍하게 생겼어.\" \"왜 살아?\" 같은 소리를 했다")
+
+[sub_resource type="ActInfo" id="ActInfo_gwumi"]
+act = "* 농담하기"
+description = PackedStringArray("* 당신은 눈과 관련된 농담을 하나 했다")
+
+[sub_resource type="EnemyState" id="EnemyState_a6v0g"]
+acts = Array[ActInfo]([SubResource("ActInfo_06043"), SubResource("ActInfo_nyw1q"), SubResource("ActInfo_ka72n"), SubResource("ActInfo_gwumi")])
+
+[sub_resource type="ActInfo" id="ActInfo_oc0x1"]
+description = PackedStringArray("* 융합체 - ATK -12 DEF -5\n* 자아를 잃어가고 있는 것 같다")
+
+[sub_resource type="ActInfo" id="ActInfo_ul256"]
+act = "* 야유하기"
+description = PackedStringArray()
+
+[sub_resource type="EnemyState" id="EnemyState_gn8i6"]
+acts = Array[ActInfo]([SubResource("ActInfo_oc0x1"), SubResource("ActInfo_ul256")])
+sparable = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_655yc"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_3djii"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.25874, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2t0oe"]
+curve = SubResource("Curve_3djii")
+
+[sub_resource type="Curve" id="Curve_ieapy"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lx7ot"]
+curve = SubResource("Curve_ieapy")
+
+[sub_resource type="Curve" id="Curve_6sdv8"]
+_data = [Vector2(0, 1), 0.0, -1.74636, 0, 0, Vector2(1, 0), -0.375671, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rdf7h"]
+curve = SubResource("Curve_6sdv8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bcw5v"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 20.0
+direction = Vector3(1, 1, 0)
+spread = 0.0
+radial_velocity_min = 160.0
+radial_velocity_max = 160.0
+radial_velocity_curve = SubResource("CurveTexture_rdf7h")
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_2t0oe")
+anim_offset_curve = SubResource("CurveTexture_lx7ot")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uy1ne"]
+shader = ExtResource("3_dn3tj")
+shader_parameter/progress = 0.0
+shader_parameter/particle_lifetime_fraction = 0.5
+shader_parameter/connect_lines = true
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 10.0
+shader_parameter/initial_linear_velocity = 40.0
+shader_parameter/linear_accel = 20.0
+shader_parameter/initial_linear_velocity_random = 0.4
+shader_parameter/linear_accel_random = 0.15
+shader_parameter/lifetime_randomness = 0.2
+shader_parameter/sprite = ExtResource("4_q03dv")
+
+[node name="snowdrake" type="Enemy_Amalgamates"]
+amalgamates = 2
+enemy_name = "융합체"
+stats = {
+"def": 60,
+"hp": 400,
+"max_hp": 400
+}
+rewards = {
+"exp": 8348,
+"gold": 300
+}
+new_states_override = false
+one_by_one_overrdie = true
+dialogues = [SubResource("Dialogues_tfnyq")]
+flavour_text = PackedStringArray("* 너무 춥다... 빨리 처리하자", "* 죽이자")
+enemy_states = [SubResource("EnemyState_a6v0g"), SubResource("EnemyState_gn8i6")]
+hurt_sound_path = NodePath("sound/Hurt")
+dust_sound_path = NodePath("sound/Dust")
+dust_path = NodePath("Dust")
+e_body_path = NodePath("enemy/body")
+sprites_path = NodePath("enemy")
+dialogue_path = NodePath("Dialogue")
+
+[node name="enemy" parent="." instance=ExtResource("1_kvt27")]
+position = Vector2(1, -75)
+scale = Vector2(1.5, 1.5)
+
+[node name="Spare" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_655yc")
+position = Vector2(1, -50)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_bcw5v")
+texture = ExtResource("2_q5kk6")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-141.412, -148.057, 285.059, 248.057)
+local_coords = true
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+position = Vector2(-50, -146)
+scale = Vector2(1.45, 1.45)
+emitting = false
+amount = 16000
+process_material = SubResource("ShaderMaterial_uy1ne")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-6.06821, -19.7972, 119.866, 163.797)
+local_coords = true
+
+[node name="Dialogue" parent="." instance=ExtResource("5_6df3g")]
+offset_left = 68.0
+offset_top = -154.0
+offset_right = 235.0
+offset_bottom = -30.0
+
+[node name="sound" type="Node" parent="."]
+
+[node name="Dust" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("6_dfjgr")
+bus = &"SFX"
+
+[node name="Hurt" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("7_sb8sn")
+
+[editable path="enemy"]

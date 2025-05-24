@@ -222,7 +222,7 @@ void Enemy_SANS1::on_mercy_used() {
     });
 }
 
-void Enemy_SANS1::on_death_player() {
+void Enemy_SANS1::on_win() {
     global->save_flag("sans_1_death", true);
 }
 

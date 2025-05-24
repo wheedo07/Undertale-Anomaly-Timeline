@@ -18,6 +18,7 @@ namespace godot {
             Ref<PackedScene> scene_dogmissle;
             Ref<PackedScene> scene_nofacedog;
             Ref<PackedScene> scene_freakbullet;
+            Ref<PackedScene> scene_clawbullet;
 
             // Endogeny
             void attack_endogeny_1();
@@ -25,6 +26,10 @@ namespace godot {
 
             // Memoryhead
             void attack_memoryhead();
+
+            // Snowdrake
+            void attack_snowdrake_1();
+            void attack_snowdrake_2();
 
         public:
             AttackAmalgamates();
@@ -38,6 +43,7 @@ namespace godot {
             DefaultBullet* create_dogmissle(Masking type);
             Nofacedog* create_nofacedog(Masking type, int mode);
             Freakbullet* create_freakbullet(Masking type);
+            DefaultBullet* create_clawbullet(Masking type);
     };
 }
 

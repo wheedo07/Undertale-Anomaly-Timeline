@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_5ijtm"]
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="3_w1i3w"]
 [ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="4_uqlbi"]
-[ext_resource type="Encounter" uid="uid://c2tk8eqv38pme" path="res://Game/encounters/tres/endogeny.tres" id="5_c005o"]
 [ext_resource type="PackedScene" uid="uid://gyhc83v53iax" path="res://Overworld/Interactions/save.tscn" id="5_wor0q"]
+[ext_resource type="Encounter" uid="uid://cks4rpxg5rlal" path="res://Game/encounters/tres/snowdrake.tres" id="6_fleft"]
 [ext_resource type="Encounter" uid="uid://blctlshwcifbv" path="res://Game/encounters/tres/memoryhead.tres" id="6_xnspc"]
 [ext_resource type="PackedScene" uid="uid://c8yexn6trfd1f" path="res://Game/text_trigger.tscn" id="7_pljov"]
 
@@ -29,7 +29,7 @@ world_name = "진실의 연구소"
 player_path = NodePath("PlayerOverworld")
 camera_path = NodePath("image/Camera")
 music = ExtResource("1_1hobh")
-room_entrances = [NodePath("trigger/room_1")]
+room_entrances = [NodePath("trigger/room_1"), NodePath("trigger/room_5")]
 y_sort_enabled = true
 
 [node name="image" type="Sprite2D" parent="."]
@@ -44,10 +44,11 @@ metadata/_edit_lock_ = true
 [node name="Camera" parent="image" instance=ExtResource("4_uqlbi")]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = false
-position = Vector2(0, 50)
+position = Vector2(0, 40)
 
 [node name="PlayerOverworld" parent="." instance=ExtResource("3_w1i3w")]
-Encounters = Array[Encounter]([ExtResource("5_c005o"), ExtResource("6_xnspc")])
+frame_alert = 2
+Encounters = Array[Encounter]([ExtResource("6_xnspc"), ExtResource("6_fleft")])
 position = Vector2(61, 70)
 
 [node name="trigger" type="Node2D" parent="."]
@@ -58,7 +59,7 @@ position = Vector2(-54, 93)
 
 [node name="potato" parent="trigger" instance=ExtResource("7_pljov")]
 text = PackedStringArray("* 자판기다")
-position = Vector2(-29, 11)
+position = Vector2(-28, 11)
 scale = Vector2(1.3, 1)
 
 [node name="TextTrigger" parent="trigger" instance=ExtResource("7_pljov")]
@@ -81,6 +82,17 @@ offset_left = 16.0
 offset_right = 58.0
 offset_bottom = 15.0
 pivot_offset = Vector2(21, 23)
+
+[node name="room_5" type="RoomEntranceNode" parent="trigger"]
+facing_direction = Vector2(0, -1)
+door_id = 5
+new_room = "res://Game/overworld/trueLaboratory/5.tscn"
+new_room_entrance_id = 4
+offset_left = 18.0
+offset_top = 165.0
+offset_right = 56.0
+offset_bottom = 180.0
+pivot_offset = Vector2(18, -12)
 
 [node name="static" type="StaticBody2D" parent="."]
 

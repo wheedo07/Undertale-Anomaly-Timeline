@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://c25g8d0wx4vdr"]
+
+[ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_n11lm"]
+[ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_6up87"]
+[ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="3_mat7s"]
+[ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="4_jnvia"]
+[ext_resource type="Encounter" uid="uid://cks4rpxg5rlal" path="res://Game/encounters/tres/snowdrake.tres" id="5_truah"]
+[ext_resource type="Encounter" uid="uid://blctlshwcifbv" path="res://Game/encounters/tres/memoryhead.tres" id="6_wr835"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyup"]
+size = Vector2(798, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bkyu"]
+size = Vector2(131, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufaxl"]
+size = Vector2(22, 488)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p2js"]
+size = Vector2(181, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbbsx"]
+size = Vector2(20, 122)
+
+[node name="true_5" type="TrueLaboratory" node_paths=PackedStringArray("room_entrances")]
+player_path = NodePath("PlayerOverworld")
+camera_path = NodePath("PlayerOverworld/Camera")
+music = ExtResource("1_n11lm")
+room_entrances = [NodePath("trigger/room_4")]
+y_sort_enabled = true
+
+[node name="image" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(37.25, 21)
+texture = ExtResource("2_6up87")
+region_enabled = true
+region_rect = Rect2(180, 1525, 1307, 536)
+metadata/_edit_lock_ = true
+
+[node name="PlayerOverworld" parent="." instance=ExtResource("4_jnvia")]
+frame_alert = 2
+Encounters = Array[Encounter]([ExtResource("6_wr835"), ExtResource("5_truah")])
+position = Vector2(242, 217)
+
+[node name="Camera" parent="PlayerOverworld" instance=ExtResource("3_mat7s")]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = false
+limit_top = -230
+
+[node name="trigger" type="Node2D" parent="."]
+
+[node name="room_4" type="RoomEntranceNode" parent="trigger"]
+facing_direction = Vector2(0, 1)
+door_id = 4
+new_room = "res://Game/overworld/trueLaboratory/4.tscn"
+new_room_entrance_id = 5
+offset_left = 443.0
+offset_top = -230.0
+offset_right = 483.0
+offset_bottom = -210.0
+pivot_offset = Vector2(19, 38)
+
+[node name="static" type="StaticBody2D" parent="."]
+
+[node name="1" type="CollisionShape2D" parent="static"]
+position = Vector2(42.5, 271)
+shape = SubResource("RectangleShape2D_tpyup")
+
+[node name="2" type="CollisionShape2D" parent="static"]
+position = Vector2(44, 170.5)
+shape = SubResource("RectangleShape2D_tpyup")
+
+[node name="3" type="CollisionShape2D" parent="static"]
+position = Vector2(507.5, 271)
+shape = SubResource("RectangleShape2D_7bkyu")
+
+[node name="4" type="CollisionShape2D" parent="static"]
+position = Vector2(495, -2)
+shape = SubResource("RectangleShape2D_ufaxl")
+
+[node name="5" type="CollisionShape2D" parent="static"]
+position = Vector2(432, -102)
+shape = SubResource("RectangleShape2D_ufaxl")
+
+[node name="6" type="CollisionShape2D" parent="static"]
+position = Vector2(-445.5, 170)
+shape = SubResource("RectangleShape2D_3p2js")
+
+[node name="7" type="CollisionShape2D" parent="static"]
+position = Vector2(-445.5, 271)
+shape = SubResource("RectangleShape2D_3p2js")
+
+[node name="8" type="CollisionShape2D" parent="static"]
+position = Vector2(-546, 220)
+shape = SubResource("RectangleShape2D_pbbsx")

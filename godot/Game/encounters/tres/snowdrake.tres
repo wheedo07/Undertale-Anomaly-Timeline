@@ -1,0 +1,10 @@
+[gd_resource type="Encounter" load_steps=3 format=3 uid="uid://cks4rpxg5rlal"]
+
+[ext_resource type="PackedScene" uid="uid://dpfep6eb0a12c" path="res://Game/encounters/enemy/amalgamates/snowdrake.tscn" id="1_gmq1w"]
+[ext_resource type="AudioStream" uid="uid://dchqf2l2n5x5x" path="res://Game/assets/audio/battle/trueLaboratory.mp3" id="2_p8k60"]
+
+[resource]
+encounter_name = &"Snowdrake"
+enemies = Array[PackedScene]([ExtResource("1_gmq1w")])
+music = ExtResource("2_p8k60")
+flee_chance = 0.7

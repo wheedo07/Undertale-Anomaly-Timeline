@@ -26,10 +26,13 @@ void Enemy_Amalgamates::ready() {
     attackScene = ResourceLoader::get_singleton()->load("res://Game/mainAttacks/attack_amalgamates.tscn");
     sprite_body = Object::cast_to<AnimatedSprite2D>(get_sprites()->get_node_internal("body"));
 
-    if(type == Endogeny) {
+    if(type == Endogeny || type == Snowdrake) {
         shader = sprite_body->get_material();
         shader->set_shader_parameter("time", 0);
-        is_act.resize(5);
+        if(type == Endogeny)
+            is_act.resize(5);
+        else if(type == Snowdrake)
+            is_act.resize(4);
     }
     is_act.fill(0);
 }
@@ -48,6 +51,8 @@ void Enemy_Amalgamates::_on_get_turn() {
         endogeny_turn();
     else if(type == Memoryhead)
         memoryhead_turn();
+    else if(type == Snowdrake)
+        snowdrake_turn();
 }
 
 void Enemy_Amalgamates::_on_end_turn() {
@@ -63,6 +68,8 @@ void Enemy_Amalgamates::on_act_used(int option) {
         endogeny_act(option);
     else if(type == Memoryhead)
         memoryhead_act(option);
+    else if(type == Snowdrake)
+        snowdrake_act(option);
 }
 
 void Enemy_Amalgamates::on_item_used(int option) {

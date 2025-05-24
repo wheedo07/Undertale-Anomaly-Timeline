@@ -12,6 +12,7 @@ void AttackAmalgamates::ready() {
     scene_dogmissle = loader->load("res://Game/encounters/Bullets/dogmissle.tscn");
     scene_nofacedog = loader->load("res://Game/encounters/Bullets/nofacedog.tscn");
     scene_freakbullet = loader->load("res://Game/encounters/Bullets/freakbullet.tscn");
+    scene_clawbullet = loader->load("res://Game/encounters/Bullets/clawbullet.tscn");
 }
 
 void AttackAmalgamates::start_attack() {
@@ -22,6 +23,10 @@ void AttackAmalgamates::start_attack() {
             attack_endogeny_2();
     }else if(type == Memoryhead)
         attack_memoryhead();
+    else if(type == Snowdrake) {
+        if(id == 1)
+            attack_snowdrake_1();
+    }
 }
 
 void AttackAmalgamates::set_type(AmalgamatesType value, int id) {
@@ -45,4 +50,10 @@ Freakbullet* AttackAmalgamates::create_freakbullet(Masking type) {
     Freakbullet* freakbullet = Object::cast_to<Freakbullet>(scene_freakbullet->instantiate());
     add_bullet(freakbullet, type);
     return freakbullet;
+}
+
+DefaultBullet* AttackAmalgamates::create_clawbullet(Masking type) {
+    DefaultBullet* clawbullet = Object::cast_to<DefaultBullet>(scene_clawbullet->instantiate());
+    add_bullet(clawbullet, type);
+    return clawbullet;
 }

@@ -47,7 +47,7 @@ void Enemy_Amalgamates::endogeny_item(int option) {
 }
 
 void Enemy_Amalgamates::endogeny_act(int option) {
-    if(is_mercy < 8) {
+    if(is_mercy < 8 && option != 0) {
         switch(option) {
             case 1: // 쓰다듬기
                 if (is_act[option] < 3) {

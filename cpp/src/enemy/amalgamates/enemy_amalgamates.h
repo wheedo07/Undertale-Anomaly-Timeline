@@ -40,6 +40,10 @@ namespace godot {
             void memoryhead_turn();
             void memoryhead_act(int option);
 
+            // Snowdrake 
+            void snowdrake_turn();
+            void snowdrake_act(int option);
+
         public:
             Enemy_Amalgamates();
             ~Enemy_Amalgamates();

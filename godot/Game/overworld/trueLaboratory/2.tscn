@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0kpo6bd5ccie"]
+[gd_scene load_steps=11 format=3 uid="uid://c0kpo6bd5ccie"]
 
 [ext_resource type="AudioStream" uid="uid://cwf6d1r0xknc" path="res://Game/assets/audio/background/trueLaboratory.mp3" id="1_0dub1"]
 [ext_resource type="Texture2D" uid="uid://2bgfl40x0xg" path="res://Game/assets/img/true.png" id="2_bvwjp"]
 [ext_resource type="PackedScene" uid="uid://d4gqwwjrenhax" path="res://Camera/camera.tscn" id="3_7i2r7"]
 [ext_resource type="PackedScene" uid="uid://d4g7r4oj7f4t8" path="res://Overworld/Characters/player_overworld.tscn" id="4_xolf6"]
 [ext_resource type="PackedScene" uid="uid://bl46cnf1qthmi" path="res://Overworld/Characters/flowey.tscn" id="5_7x56o"]
+[ext_resource type="Encounter" uid="uid://blctlshwcifbv" path="res://Game/encounters/tres/memoryhead.tres" id="5_rmm3v"]
+[ext_resource type="Encounter" uid="uid://cks4rpxg5rlal" path="res://Game/encounters/tres/snowdrake.tres" id="5_rytdm"]
 [ext_resource type="PackedScene" uid="uid://c8yexn6trfd1f" path="res://Game/text_trigger.tscn" id="5_s2hau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5kyi"]
@@ -30,7 +32,9 @@ region_rect = Rect2(574, 982, 527, 183)
 metadata/_edit_lock_ = true
 
 [node name="PlayerOverworld" parent="." instance=ExtResource("4_xolf6")]
-position = Vector2(262, 65)
+frame_alert = 2
+Encounters = Array[Encounter]([ExtResource("5_rmm3v"), ExtResource("5_rytdm")])
+position = Vector2(213, 60)
 
 [node name="Camera" parent="PlayerOverworld" instance=ExtResource("3_7i2r7")]
 zoom = Vector2(2, 2)

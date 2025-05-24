@@ -115,7 +115,7 @@ stats = {
 "max_hp": 100
 }
 rewards = {
-"exp": 8348,
+"exp": 8347,
 "gold": 300
 }
 new_states_override = false

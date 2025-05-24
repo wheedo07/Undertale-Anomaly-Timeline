@@ -37,3 +37,4 @@ animations = [{
 [node name="body" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_b2n21")
 sprite_frames = SubResource("SpriteFrames_atgku")
+autoplay = "default"
