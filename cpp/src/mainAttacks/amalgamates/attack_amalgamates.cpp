@@ -26,6 +26,8 @@ void AttackAmalgamates::start_attack() {
     else if(type == Snowdrake) {
         if(id == 1)
             attack_snowdrake_1();
+        else if(id == 2)
+            attack_snowdrake_2();
     }
 }
 

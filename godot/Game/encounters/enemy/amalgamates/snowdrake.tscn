@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dpfep6eb0a12c"]
+[gd_scene load_steps=26 format=3 uid="uid://dpfep6eb0a12c"]
 
 [ext_resource type="PackedScene" uid="uid://bxjspbodtq2dt" path="res://Game/encounters/body/amalgamates/snowdrake.tscn" id="1_kvt27"]
 [ext_resource type="Texture2D" uid="uid://bw02r33khpc4w" path="res://particles/smoke.png" id="2_q5kk6"]
@@ -21,7 +21,7 @@ description = PackedStringArray("* 융합체 - ATK -12 DEF -5\n* 자아를 잃�
 
 [sub_resource type="ActInfo" id="ActInfo_nyw1q"]
 act = "* 웃기"
-description = PackedStringArray("* 넌.. 정말", "* 나쁜 아이야")
+description = PackedStringArray("* 융합체에게 웃어보았다")
 
 [sub_resource type="ActInfo" id="ActInfo_ka72n"]
 act = "* 야유하기"
@@ -29,20 +29,16 @@ description = PackedStringArray("* 당신은 ... \"너 끔찍하게 생겼어.\"
 
 [sub_resource type="ActInfo" id="ActInfo_gwumi"]
 act = "* 농담하기"
-description = PackedStringArray("* 당신은 눈과 관련된 농담을 하나 했다")
+description = PackedStringArray("* 당신은 융합체에게 농담을 했다.")
 
 [sub_resource type="EnemyState" id="EnemyState_a6v0g"]
 acts = Array[ActInfo]([SubResource("ActInfo_06043"), SubResource("ActInfo_nyw1q"), SubResource("ActInfo_ka72n"), SubResource("ActInfo_gwumi")])
 
 [sub_resource type="ActInfo" id="ActInfo_oc0x1"]
-description = PackedStringArray("* 융합체 - ATK -12 DEF -5\n* 자아를 잃어가고 있는 것 같다")
-
-[sub_resource type="ActInfo" id="ActInfo_ul256"]
-act = "* 야유하기"
-description = PackedStringArray()
+description = PackedStringArray("* 융합체 - ATK -12 DEF -5\n* 자아를 잃어가고 있는 것 같다", "* [color=red]편하게 해주자 :)[/color]")
 
 [sub_resource type="EnemyState" id="EnemyState_gn8i6"]
-acts = Array[ActInfo]([SubResource("ActInfo_oc0x1"), SubResource("ActInfo_ul256")])
+acts = Array[ActInfo]([SubResource("ActInfo_oc0x1")])
 sparable = true
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_655yc"]
