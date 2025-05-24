@@ -24,9 +24,9 @@ void Enemy_Amalgamates::memoryhead_act(int option) {
     [this]() {
         if(is_mercy > 0) {
             set_current_state(1);
-            Dictionary state = get_stats();
+            Dictionary state;
             state["def"] = -999;
-            set_stats(state);
+            change_stats(state);
         }
         emit_signal("on_act_end");
     });

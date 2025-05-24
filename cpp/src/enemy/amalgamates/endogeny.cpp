@@ -38,9 +38,9 @@ void Enemy_Amalgamates::endogeny_item(int option) {
     [this]() {
         if(is_mercy >= 8) {
             set_current_state(1);
-            Dictionary state = get_stats();
+            Dictionary state;
             state["def"] = -999;
-            set_stats(state);
+            change_stats(state);
         }
         emit_signal("on_item_end");
     });
@@ -106,10 +106,10 @@ void Enemy_Amalgamates::endogeny_act(int option) {
     [this]() {
         if(is_mercy >= 8) {
             set_current_state(1);
-            Dictionary state = get_stats();
+            Dictionary state;
             state["def"] = -999;
-            set_stats(state);
+            change_stats(state);
         }
-        emit_signal("on_act_end");
+        emit_signal("on_item_end");
     });
 }

@@ -65,9 +65,9 @@ void Enemy_Amalgamates::snowdrake_act(int option) {
     [this]() {
         if(is_mercy > 2) {
             set_current_state(1);
-            Dictionary state = get_stats();
+            Dictionary state;
             state["def"] = -9999;
-            set_stats(state);
+            change_stats(state);
         }
         emit_signal("on_act_end");
     });
